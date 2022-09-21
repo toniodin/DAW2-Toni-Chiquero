@@ -1,8 +1,4 @@
 <?php
-// <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-// <script src="sweetalert2.all.min.js"></script>
-// <script src="sweetalert2.min.js"></script>
-// <link rel="stylesheet" href="sweetalert2.min.css"> -->
 
 //session_start();
 
@@ -19,51 +15,26 @@ $password="usbw";
 $bd="daw2";
 
 $con=mysqli_connect($servidor,$usuario,$password,$bd);
+mysqli_set_charset($con,"utf8");
 
 if(!$con){
-   
+    var_dump("mal");
     // Swal.fire({
-    //     position: 'top-end',
-    //     icon: 'error',
-    //     title: 'Ha ocurrido un error',
-    //     confirmButtonClass: "btn-danger",
-    //     showConfirmButton: true,
-    //     timer: 1500
-    // })
-     
+//     position: 'top-end',
+//     icon: 'error',
+//     title: 'Ha ocurrido un error',
+//     confirmButtonClass: "btn-danger",
+//     showConfirmButton: true,
+//     timer: 1500
+// })
 }else{
-   
-    mysqli_set_charset($con,"utf8");
-    
-
+    // var_dump("khe?");
     $sql="INSERT INTO `productos`(`id`, `nProd`, `precio`, `fechaCad`,`cantidad') 
     VALUES (NULL,'$nombreProducto',$precio,'$fechaCad',$cantidad)";
-    //var_dump($sql);
+    var_dump($sql);
+    swalInsert();
+}
 
-    $consulta=mysqli_query($con,$sql);
-    //var_dump($consulta);
-
-
-    if(!$consulta){
-        var_dump("hola");
-        // Swal.fire({
-    //     position: 'top-end',
-    //     icon: 'error',
-    //     title: 'Ha ocurrido un error',
-    //     confirmButtonClass: "btn-danger",
-    //     showConfirmButton: true,
-    //     timer: 1500
-    // })
-    }else{
-        // Swal.fire({
-    //     position: 'top-end',
-    //     icon: 'succes',
-    //     title: 'Se ha realizado el insert con exito',
-    //     confirmButtonClass: "btn-success",
-    //     showConfirmButton: true,
-    //     timer: 1500
-    // })
-    }
 ?>
 
 <!DOCTYPE html>
@@ -72,32 +43,36 @@ if(!$con){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Leer formulario</title>
+    <table>
+        <?php
+            $sql2="SELECT * FROM `productos`";
+            $consulta=mysqli_query($con,$sql2);
+            while($fila=$consulta->fetch_assoc()){
+                echo "<tr>";
+                echo "<td>".$fila["id"]."</td>";
+                echo "<td>".$fila["nProd"]."</td>";
+                echo "<td>".$fila["percio"]."</td>";
+                echo "<td>".$fila["fechaCad"]."</td>";
+                echo "<td>".$fila["cantidad"]."</td>";
+                echo "</tr>";
+            }
+        ?>
+    </table>
 </head>
 <body>
-
-    <table>
-    <?php
-        $sql2="SELECT * FROM `alumnos`";
-        $consulta=mysqli_query($con,$sql2);
-        while($fila=$consulta->fetch_assoc()){
-            echo "<tr>";
-            echo "<td>".$fila["id"]."</td>";
-            echo "<td>".$fila["nombre"]."</td>";
-            echo "<td>".$fila["apellidos"]."</td>";
-            echo "<td>".$fila["edad"]."</td>";
-            echo "</tr>";
-        }
-    ?>
-    </table>
-
-    <form action="/logout.php" method="post">
-
-    <input type="submit" value="Enviar">
-</form>
+    
 </body>
 </html>
 
-<?php
-}
-?>
+<script>
+    swalInsert(){
+        Swal.fire({
+        position: 'top-end',
+        icon: 'succes',
+        title: 'Se ha realizado el insert con exito',
+        confirmButtonClass: "btn-success",
+        showConfirmButton: true,
+        timer: 1500})
+    }
+</script>
