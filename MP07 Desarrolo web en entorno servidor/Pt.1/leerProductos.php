@@ -32,30 +32,30 @@ if($con){
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-        <a class="navbar-brand" href="#">Mis productos</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="main.php">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="leerProductos.php">Leer productos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="actualizarProductos">Actualizar productos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Borrar productos</a>
-            </li>
-            </ul>
-            <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light" type="submit">Buscar</button>
-            </form>
-        </div>
+          <a class="navbar-brand" href="#">Mis productos</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarColor01">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="main.php">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="leerProductos.php">Leer productos</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="actualizarProductos.php">Actualizar productos</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="borrarProductos.php">Borrar productos</a>
+              </li>
+              </ul>
+              <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-light" type="submit" name="buscador">Buscar</button>
+              </form>
+          </div>
         </div>
   </nav>
 <div class="container mt-3">
@@ -70,6 +70,7 @@ if($con){
         <th>Descripción</th>
       </tr>
       <?php
+      $buscador=$_GET['buscador'];
         $sql2="SELECT * FROM `productos`";
         $consulta=mysqli_query($con,$sql2);
         while($fila=$consulta->fetch_assoc()){
@@ -88,7 +89,6 @@ if($con){
 
     <form action="/logout.php" method="post">
 
-    <input type="submit" value="Enviar">
 </form>
 </body>
 </html>
@@ -96,5 +96,47 @@ if($con){
 <?php
 }
 ?>
+
+<!-- if(empty($nombre)){
+
+if(empty($precio)){
+
+    $consulta2 = "SELECT * 
+    FROM `productos`
+    WHERE categoria = '$categoria'";
+
+} else {
+
+    $consulta2 = "SELECT * 
+    FROM `productos`
+    WHERE categoria = '$categoria' AND precio = '$precio'       ";
+
+}
+
+} else if(empty($precio)){
+
+if(empty($nombre)){
+
+
+    $consulta2 = "SELECT * 
+    FROM `productos`
+    WHERE categoria = '$categoria'";
+
+} else {
+
+
+    $consulta2 = "SELECT * 
+    FROM `productos`
+    WHERE categoria = '$categoria' AND nombre = '$nombre'";
+
+}
+
+} else {
+
+$consulta2 = "SELECT * 
+FROM `productos`
+WHERE categoria = '$categoria' AND nombre = '$nombre' and precio = '$precio'";
+
+} -->
 
 

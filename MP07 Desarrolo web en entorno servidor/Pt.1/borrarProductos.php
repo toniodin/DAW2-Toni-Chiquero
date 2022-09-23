@@ -12,10 +12,10 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-        <a class="navbar-brand" href="#">Mis productos</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <a class="navbar-brand" href="#">Mis productos</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
@@ -34,27 +34,16 @@
             </div>
         </div>
   </nav>
-    <div class="container mt-3">
-        <h2>Añadir productos</h2>
+
+  <div class="container mt-3">
+        <h2 style="text-align:center">Borrar productos</h2>
         <form action="consultas.php" method="get">
-            <div class="mb-3 mt-3">
-                <label for="">Nombre del producto:</label>
-                <input type="text" class="form-control" id="nombre" placeholder="Nombre del producto" name="nombre">
-            </div>
-            <div class="mb-3">
-                <label for="">Precio del producto:</label>
-                <input type="number" class="form-control" id="precio" placeholder="Precio del producto" name="precio">
-            </div>
-            <div class="mb-3">
-                <label for="">Cantidad:</label>
-                <input type="number" class="form-control" id="cantidad" placeholder="Cantidad" name="cantidad">
-            </div>
-            <div class="mb-3">
+            <div class="mb-3" style="padding-left:24.5%" >
                 <label for="">Descripcion:</label>
-                <input type="text" class="form-control" id="descripcion" placeholder="Descripcion" name="descripcion">
+                <input type="number" class="form-control" id="id" placeholder="Inserte el ID" name="id" style="width:67.5%">
             </div>
             <div class="mb-3 row" style="justify-content:center">
-                <button type="submit" class="btn btn-dark col-6" name = "insertBtn" >Enviar</button>
+                <button type="submit" class="btn btn-dark col-6" name="deleteBtn">Enviar</button>
             <div>
         </form>
     </div>

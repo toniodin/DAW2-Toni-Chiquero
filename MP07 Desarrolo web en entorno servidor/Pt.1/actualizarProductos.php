@@ -19,28 +19,29 @@
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="main.php">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="leerProductos.php">Leer productos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Actualizar productos</a>
+                <a class="nav-link" href="actualizarProductos.php">Actualizar productos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Borrar productos</a>
+                <a class="nav-link" href="borrarProductos.php">Borrar productos</a>
             </li>
             </ul>
-            <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light" type="submit">Buscar</button>
-            </form>
-        </div>
+            </div>
         </div>
   </nav>
     <div class="container mt-3">
-        <h2>Añadir productos</h2>
-        <form action="insertForm.php" method="get">
+        <h2>Actualizar productos</h2>
+        <h3>Introduzca el id del registro que quiera actualizar</h3>
+        <form action="consultas.php" method="get">
+            <div class="mb-3 mt-3">
+                <label for="">ID:</label>
+                <input type="number" class="form-control" id="id" placeholder="Inserte el ID" name="id">
+            </div>
             <div class="mb-3 mt-3">
                 <label for="">Nombre del producto:</label>
                 <input type="text" class="form-control" id="nombre" placeholder="Nombre del producto" name="nombre">
@@ -58,7 +59,7 @@
                 <input type="text" class="form-control" id="descripcion" placeholder="Descripcion" name="descripcion">
             </div>
             <div class="mb-3 row" style="justify-content:center">
-                <button type="submit" class="btn btn-dark col-6" >Enviar</button>
+                <button type="submit" class="btn btn-dark col-6" name="updateBtn">Enviar</button>
             <div>
         </form>
     </div>
