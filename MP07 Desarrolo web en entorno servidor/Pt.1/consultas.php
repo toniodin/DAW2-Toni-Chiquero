@@ -1,3 +1,6 @@
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <?php
 
 //session_start();
@@ -25,6 +28,9 @@ if(!$con){
         mysqli_set_charset($con,"utf8");
         $sql="UPDATE `productos` SET `nombre`='$nombre', `precio` = '$precio', `cantidad` = '$cantidad', `descripcion` = '$descripcion' WHERE `id` = '$id'";
         $consulta=mysqli_query($con,$sql);
+        sleep(2);
+        header('Location: main.php');
+        exit();
        
    }elseif(isset($_GET['insertBtn'])){
 
@@ -32,22 +38,24 @@ if(!$con){
         $sql="INSERT INTO `productos`(`id`, `nombre`, `precio`, `cantidad`, `descripcion`) 
                 VALUES (NULL,'$nombre',$precio,$cantidad,'$descripcion')";
         $consulta=mysqli_query($con,$sql);
+        sleep(2);
+        header('Location: main.php');
+        exit();
 
    }elseif(isset($_GET['deleteBtn'])){
 
     mysqli_set_charset($con,"utf8");
     $sql="DELETE FROM `productos` WHERE `id` = '$id'";
     $consulta=mysqli_query($con,$sql);
+    sleep(10);
+    header('Location: main.php');
+    exit();
 
-}
+     }
 
-
-
-
-header('Location: main.php');
-exit();
 }
 ?>
+
 
 
 

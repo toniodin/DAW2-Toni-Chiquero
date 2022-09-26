@@ -6,6 +6,7 @@ $nombre = $_GET['nombre'];
 $precio = $_GET['precio'];
 $cantidad = $_GET['cantidad'];
 $descripcion = $_GET['descripcion'];
+$buscador = NULL;
 
 $servidor="localhost";
 $usuario="root";
@@ -52,8 +53,8 @@ if($con){
               </li>
               </ul>
               <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-light" type="submit" name="buscador">Buscar</button>
+              <input class="form-control me-2" type="search" placeholder="Buscador por ID" name="buscador" aria-label="Buscador por ID">
+              <button class="btn btn-outline-light" type="submit" name="">Buscar</button>
               </form>
           </div>
         </div>
@@ -70,7 +71,12 @@ if($con){
         <th>Descripción</th>
       </tr>
       <?php
-      $buscador=$_GET['buscador'];
+      $buscador = $_GET['buscador']; 
+      //var_dump($buscador);
+      if($buscador != NULL ||  $buscador != ""){
+        buscador($con,$buscador);
+      }else{
+        //var_dump($_GET['buscador']);
         $sql2="SELECT * FROM `productos`";
         $consulta=mysqli_query($con,$sql2);
         while($fila=$consulta->fetch_assoc()){
@@ -82,12 +88,13 @@ if($con){
             echo "<td>".$fila["descripcion"]."</td>";
             echo "</tr>";
         }
-        ?>
+      }
+      ?>
     </tbody>
   </table>
 </div>
 
-    <form action="/logout.php" method="post">
+    <form action="/logout.php" method="get">
 
 </form>
 </body>
@@ -96,47 +103,23 @@ if($con){
 <?php
 }
 ?>
-
-<!-- if(empty($nombre)){
-
-if(empty($precio)){
-
-    $consulta2 = "SELECT * 
-    FROM `productos`
-    WHERE categoria = '$categoria'";
-
-} else {
-
-    $consulta2 = "SELECT * 
-    FROM `productos`
-    WHERE categoria = '$categoria' AND precio = '$precio'       ";
-
-}
-
-} else if(empty($precio)){
-
-if(empty($nombre)){
-
-
-    $consulta2 = "SELECT * 
-    FROM `productos`
-    WHERE categoria = '$categoria'";
-
-} else {
-
-
-    $consulta2 = "SELECT * 
-    FROM `productos`
-    WHERE categoria = '$categoria' AND nombre = '$nombre'";
-
-}
-
-} else {
-
-$consulta2 = "SELECT * 
-FROM `productos`
-WHERE categoria = '$categoria' AND nombre = '$nombre' and precio = '$precio'";
-
-} -->
-
+<script>
+    <?php
+    function buscador($con,$buscador){
+        $sql2="SELECT * FROM `productos` where `id` = $buscador";
+        //var_dump($sql2);
+        $consulta=mysqli_query($con,$sql2);
+        while($fila=$consulta->fetch_assoc()){
+            echo "<tr>";
+            echo "<td>".$fila["id"]."</td>";
+            echo "<td>".$fila["nombre"]."</td>";
+            echo "<td>".$fila["cantidad"]."</td>";
+            echo "<td>".$fila["precio"]."</td>";
+            echo "<td>".$fila["descripcion"]."</td>";
+            echo "</tr>";
+        }
+        $buscador = NULL;
+    }
+    ?>
+</script>
 

@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>    
 
 </head>
 <body>
@@ -43,9 +45,31 @@
                 <input type="number" class="form-control" id="id" placeholder="Inserte el ID" name="id" style="width:67.5%">
             </div>
             <div class="mb-3 row" style="justify-content:center">
-                <button type="submit" class="btn btn-dark col-6" name="deleteBtn">Enviar</button>
+                <button type="submit" class="btn btn-dark col-6" name="deleteBtn" onclick="notificarDelete()">Enviar</button>
             <div>
         </form>
     </div>
 </body>
 </html>
+
+<script>
+    function notificarDelete(){
+        swal({
+            title: "Alerta de seguridad",
+            text: "¿De verdad desea borrar este registro?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                swal("Registro borrado con exito", {
+                    icon: "success",
+                });
+            } else {
+                swal("El registro no ha sido borrado", {
+                    icon: "error",
+                });
+            }
+        });
+}
+</script>

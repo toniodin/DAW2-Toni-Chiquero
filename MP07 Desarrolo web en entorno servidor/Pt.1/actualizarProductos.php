@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>     
 
 </head>
 <body>
@@ -59,9 +61,27 @@
                 <input type="text" class="form-control" id="descripcion" placeholder="Descripcion" name="descripcion">
             </div>
             <div class="mb-3 row" style="justify-content:center">
-                <button type="submit" class="btn btn-dark col-6" name="updateBtn">Enviar</button>
+                <button type="submit" class="btn btn-dark col-6" name="updateBtn" onclick="notificarUpdate()">Enviar</button>
             <div>
         </form>
     </div>
 </body>
 </html>
+
+<script>
+$(document).ready(function() {
+   
+});
+
+function notificarUpdate(){
+    swal({
+        title: "Se han enviado los datos a actializar!",
+        text: "Datos enviados correctamente!!",
+        icon: "success",
+        button: "Ok",
+        timer: 10000
+    });
+}
+
+</script>
+
