@@ -1,0 +1,51 @@
+header{
+    height: 60px;
+    background-color: black;
+    width: 100%;
+    
+}
+
+footer{
+    height: 100px;
+    background-color: black;
+    width: 100%;    
+}
+
+body {
+    position: relative;
+    /* background: rgba(0,0,0,0.35); */
+    min-height: 100%;
+}
+
+#logo{
+    margin-left: 10px;
+    width: 150px;
+    height: 60px;
+}
+
+#catalejo{
+    height: 100px;
+    width: 100px;
+}
+
+.Contenidos{
+    background-color: black;
+    width: 20%;
+    height: 20%;
+    margin-left: 5%;
+}
+
+.links{
+    font-size: 40px;
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    margin-bottom: 50px;
+    padding-top: 30px;
+
+}
+
+.textoFooter{
+    color: white;
+    justify-content: center;
+}
