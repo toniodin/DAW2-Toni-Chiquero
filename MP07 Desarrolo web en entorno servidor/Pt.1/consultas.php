@@ -47,7 +47,7 @@ if(!$con){
     mysqli_set_charset($con,"utf8");
     $sql="DELETE FROM `productos` WHERE `id` = '$id'";
     $consulta=mysqli_query($con,$sql);
-    sleep(10);
+    sleep(2);
     header('Location: main.php');
     exit();
 

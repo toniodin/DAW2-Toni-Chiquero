@@ -51,25 +51,3 @@
     </div>
 </body>
 </html>
-
-<script>
-    function notificarDelete(){
-        swal({
-            title: "Alerta de seguridad",
-            text: "¿De verdad desea borrar este registro?",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        }).then((willDelete) => {
-            if (willDelete) {
-                swal("Registro borrado con exito", {
-                    icon: "success",
-                });
-            } else {
-                swal("El registro no ha sido borrado", {
-                    icon: "error",
-                });
-            }
-        });
-}
-</script>
