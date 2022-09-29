@@ -45,7 +45,7 @@
                 <input type="number" class="form-control" id="id" placeholder="Inserte el ID" name="id" style="width:67.5%">
             </div>
             <div class="mb-3 row" style="justify-content:center">
-                <button type="submit" class="btn btn-dark col-6" name="deleteBtn" onclick="notificarDelete()">Enviar</button>
+                <button type="submit" class="btn btn-dark col-6" name="deleteBtn">Enviar</button>
             <div>
         </form>
     </div>
