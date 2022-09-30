@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 23-09-2022 a las 16:53:21
+-- Tiempo de generación: 30-09-2022 a las 15:58:50
 -- Versión del servidor: 5.7.36
 -- Versión de PHP: 8.1.3
 
@@ -40,7 +40,6 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `nombre`, `precio`, `cantidad`, `descripcion`) VALUES
-(1, 'carne', 12, 1, 'asdasdasd'),
 (2, 'pescado', 3424, 2423, 'fkgaishjggnka'),
 (3, 'faf', 123, 14, 'adfdafdasf'),
 (4, 'xarus', 123, 123, 'xaro');
