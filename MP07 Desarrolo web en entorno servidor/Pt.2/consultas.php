@@ -60,12 +60,22 @@ if(!$con){
      $sql2="SELECT * FROM `usuarios`";
      $consulta=mysqli_query($con,$sql2);
      while($fila=$consulta->fetch_assoc()){
-          if ($fila['usuario'] == $n_usuario && $fila['contraseña'] == $contraseña) {
+          $hash=password_hash($contraseña, PASSWORD_DEFAULT);
+          var_dump($fila['usuario']);
+          var_dump($n_usuario);
+          var_dump($hash);
+          var_dump($fila['pass']);
+          
+          if ($fila['usuario'] == $n_usuario && $fila['pass'] == $hash) {
+               var_dump($fila['usuario']);
+               var_dump($n_usuario);
+              // var_dump($hash);
                sleep(2);
                header('Location: main.php');
                exit();
           } else {
-          die ('La contraseña no es válida.');
+          // var_dump('La contraseña no es válida.');
+          // var_dump($fila['usuario'],'user','pass',$fila['contraseña']);
           }
      }
 
@@ -74,9 +84,10 @@ if(!$con){
      $hash=password_hash($contraseña, PASSWORD_DEFAULT);
      
      mysqli_set_charset($con,"utf8");
-     $sql="INSERT INTO `usuarios`(`id`, `usuario`, `contraseña`, `admin`, `nombre`,`apellidos`,`email`) 
+     $sql="INSERT INTO `usuarios`(`id`, `usuario`, `pass`, `admin`, `nombre`,`apellidos`,`email`) 
                 VALUES (NULL,'$n_usuario','$hash',0,'$nombre','$apellidos','$email')";
      $consulta=mysqli_query($con,$sql);
+     password_verify($contraseña, $hash);
      sleep(2);
      header('Location: login.php');
      exit();

@@ -157,7 +157,7 @@
         <form class="p-3 mt-3" action="consultas.php">
             <div class="form-field d-flex align-items-center">
                 <span class="far fa-user"></span>
-                <input type="text" name="Usuario" id="Usuario" placeholder="Usuario">
+                <input type="text" name="usuario" id="usuario" placeholder="Usuario">
             </div>
             <div class="form-field d-flex align-items-center">
                 <span class="fas fa-key"></span>

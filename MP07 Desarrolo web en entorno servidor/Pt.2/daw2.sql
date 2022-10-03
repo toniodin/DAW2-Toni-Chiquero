@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 30-09-2022 a las 17:05:20
+-- Tiempo de generación: 03-10-2022 a las 17:49:09
 -- Versión del servidor: 5.7.36
 -- Versión de PHP: 8.1.3
 
@@ -53,11 +53,19 @@ INSERT INTO `productos` (`id`, `nombre`, `precio`, `cantidad`, `descripcion`) VA
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `usuario` varchar(250) COLLATE utf8_spanish2_ci NOT NULL,
-  `contraseña` varchar(250) COLLATE utf8_spanish2_ci NOT NULL,
+  `pass` varchar(250) COLLATE utf8_spanish2_ci NOT NULL,
   `admin` int(11) NOT NULL,
   `nombre` varchar(250) COLLATE utf8_spanish2_ci NOT NULL,
-  `apellidos` varchar(250) COLLATE utf8_spanish2_ci NOT NULL
+  `apellidos` varchar(250) COLLATE utf8_spanish2_ci NOT NULL,
+  `email` varchar(300) COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `usuario`, `pass`, `admin`, `nombre`, `apellidos`, `email`) VALUES
+(1, 'toni', '$2y$10$vbNYNgu/o9i5VpV5WfXPheU.BgRck9fk3vZVPF9bF5Jbg36d7htli', 1, 'toni', 'chiquero encinas', 'toni@admin.com');
 
 --
 -- Índices para tablas volcadas
@@ -89,7 +97,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
