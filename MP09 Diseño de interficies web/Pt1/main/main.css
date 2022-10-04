@@ -2,7 +2,6 @@ header{
     height: 60px;
     background-color: black;
     width: 100%;
-    
 }
 
 footer{
@@ -13,7 +12,7 @@ footer{
 
 body {
     position: relative;
-    /* background: rgba(0,0,0,0.35); */
+    background: rgba(0,0,0,0.90);
     min-height: 100%;
 }
 
@@ -30,9 +29,34 @@ body {
 
 .Contenidos{
     background-color: black;
+    height: 20%;
+    width: 30%;
+    margin-left: 250px;
+    margin-bottom: 30px;
+}
+
+.ContenidosMundo{
+    background-color: black;
+    height: 20%;
+    width: 50%;
+    margin-bottom: 30px;
+    margin-left: 25%;
+}
+
+.derecha{
+    background-color: black;
+    width: 30%;
+    height: 20%;
+    margin-left: 50%;
+}
+
+.textosIzquierda{
     width: 20%;
     height: 20%;
     margin-left: 5%;
+    width: 20%; float: right; 
+    margin-right: 250px;
+    color: white;
 }
 
 .links{
@@ -45,7 +69,65 @@ body {
 
 }
 
+.linksHeader{
+    text-decoration: none;
+    color: white;
+    padding-top: 10px;
+    margin-right: 50px;
+}
+
+.textos{
+    color: white;
+    justify-content: center;
+    padding-left: 110px;
+    padding-bottom: 50px;
+    margin-top: -10px;
+}
+
+.textosMundo{
+    color: white;
+    justify-content: center;
+    padding-left: 110px;
+    padding-bottom: 50px;
+    margin-top: -10px;
+}
+
+.textosDerecha{
+    color: white;
+    justify-content: center;
+    padding-left: 110px;
+    padding-bottom: 50px;
+    margin-top: -10px;
+}
+
 .textoFooter{
     color: white;
     justify-content: center;
+    text-align: center;
+}
+
+#explicaciones{
+    color: white;
+    justify-content: center;
+    background-color: black;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: black;
+}
+
+.body{
+    display: block;
+   
+}
+
+.imagenTomo{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 650px;
+    margin-left: 155px;
 }
