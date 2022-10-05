@@ -1,47 +1,121 @@
-<div>
-    <div class="colocar">
-      <h1>Ficha de Personaje</h1>
-      <label>Nombre:</label>
-      <input type="text" [(ngModel)]="Nombres[nombre]">
-      <br>
-      <label>Fuerza:</label>
-      <input type="text" disabled="{{ _disabled }}" [value]="fuerza" />
-      <br>
-      <label>Destreza:</label>
-      <input type="text" disabled="{{ _disabled }}" [value]="destreza" />
-      <br>
-      <label>Inteligencia:</label>
-      <input type="text" disabled="{{ _disabled }}" [value]="inteligencia" />
-      <br>
-      <label>Constitucion:</label>
-      <input type="text" disabled="{{ _disabled }}" [value]="constitucion"/>
-      <br>
-      <br>
-      <input type="button" [value]="'Generar'" (click)="generarValoresRandom($event, fuerza, destreza, inteligencia, constitucion, nombre)"
-      />
-      <br>
-      <input
-      type="button" [value]="'Guardar'" (click)="guardar($event, fuerza, destreza, inteligencia, constitucion, Nombres, nombre, datos)"
-      />
-    </div>
-    <div class="colocar" style="margin-left: 50px;">
-      <h1>Personaje Guardado</h1>
-      <label>Nombre:</label>
-      <input type="text" disabled="{{ _disabled }}" [value]="datos[0]" />
-      <br>
-      <label>Fuerza:</label>
-      <input type="text" disabled="{{ _disabled }}" [value]="datos[1]" />
-      <br>
-      <label>Destreza:</label>
-      <input type="text" disabled="{{ _disabled }}" [value]="datos[2]" />
-      <br>
-      <label>Inteligencia:</label>
-      <input type="text" disabled="{{ _disabled }}" [value]="datos[3]" />
-      <br>
-      <label>Constitucion:</label>
-      <input type="text" disabled="{{ _disabled }}" [value]="datos[4]" />
-      <br><br><br><br>
-    </div>
-</div>
-  
+<div class="card-container">
+  <div class="card">
+    <label>Nombre:</label>
+    <input type="text" [(ngModel)]="serverCharacters[0].name" [disabled]="(serverCharacters[0].editable) ? false : true"/>
+    <br>
+    <label>Fuerza:</label>
+    <input type="text" [(ngModel)]="serverCharacters[0].strength" [disabled]="(serverCharacters[0].editable) ? false : true"/>
+    <br>
+    <label>Destreza:</label>
+    <input type="text" [(ngModel)]="serverCharacters[0].agility" [disabled]="(serverCharacters[0].editable) ? false : true"/>
+    <br>
+    <label>Inteligencia:</label>
+    <input type="text" [(ngModel)]="serverCharacters[0].intelligence" [disabled]="(serverCharacters[0].editable) ? false : true"/>
+    <br>
+    <label>Constitucion:</label>
+    <input type="text" [(ngModel)]="serverCharacters[0].life" [disabled]="(serverCharacters[0].editable) ? false : true"/>
+    <br>
+    <br>
+    <input type="button" (click)="editar(serverCharacters[0])" [value] = "(serverCharacters[0].boton)"/>
+    <!-- Aquí va toda la información del character para que se vea en formato Card -->
+  </div>
 
+  <!-- Dentro del parágrafo va la información del Character que se está modifcando -->
+  <p></p>
+
+  <div class="card">
+    <label>Nombre:</label>
+    <input type="text" [(ngModel)]="serverCharacters[1].name" [disabled]="(serverCharacters[1].editable) ? false : true"/>
+    <br>
+    <label>Fuerza:</label>
+    <input type="text" [(ngModel)]="serverCharacters[1].strength" [disabled]="(serverCharacters[1].editable) ? false : true"/>
+    <br>
+    <label>Destreza:</label>
+    <input type="text" [(ngModel)]="serverCharacters[1].agility" [disabled]="(serverCharacters[1].editable) ? false : true"/>
+    <br>
+    <label>Inteligencia:</label>
+    <input type="text" [(ngModel)]="serverCharacters[1].intelligence" [disabled]="(serverCharacters[1].editable) ? false : true"/>
+    <br>
+    <label>Constitucion:</label>
+    <input type="text" [(ngModel)]="serverCharacters[1].life" [disabled]="(serverCharacters[1].editable) ? false : true"/>
+    <br>
+    <br>
+    <input type="button" (click)="editar(serverCharacters[1])" [value] = "(serverCharacters[1].boton)"/>
+    <!-- Aquí va toda la información del character para que se vea en formato Card -->
+  </div>
+
+  <!-- Dentro del parágrafo va la información del Character que se está modifcando -->
+  <p></p>
+
+  <div class="card">
+    <label>Nombre:</label>
+    <input type="text" [(ngModel)]="serverCharacters[2].name" [disabled]="(serverCharacters[2].editable) ? false : true"/>
+    <br>
+    <label>Fuerza:</label>
+    <input type="text" [(ngModel)]="serverCharacters[2].strength" [disabled]="(serverCharacters[2].editable) ? false : true"/>
+    <br>
+    <label>Destreza:</label>
+    <input type="text" [(ngModel)]="serverCharacters[2].agility" [disabled]="(serverCharacters[2].editable) ? false : true"/>
+    <br>
+    <label>Inteligencia:</label>
+    <input type="text" [(ngModel)]="serverCharacters[2].intelligence" [disabled]="(serverCharacters[2].editable) ? false : true"/>
+    <br>
+    <label>Constitucion:</label>
+    <input type="text" [(ngModel)]="serverCharacters[2].life" [disabled]="(serverCharacters[2].editable) ? false : true"/>
+    <br>
+    <br>
+    <input type="button" (click)="editar(serverCharacters[2])" [value] = "(serverCharacters[2].boton)"/>
+    <!-- Aquí va toda la información del character para que se vea en formato Card -->
+  </div>
+
+  <!-- Dentro del parágrafo va la información del Character que se está modifcando -->
+  <p></p>
+
+  <div class="card">
+    <label>Nombre:</label>
+    <input type="text" [(ngModel)]="serverCharacters[3].name" [disabled]="(serverCharacters[3].editable) ? false : true"/>
+    <br>
+    <label>Fuerza:</label>
+    <input type="text" [(ngModel)]="serverCharacters[3].strength" [disabled]="(serverCharacters[3].editable) ? false : true"/>
+    <br>
+    <label>Destreza:</label>
+    <input type="text" [(ngModel)]="serverCharacters[3].agility" [disabled]="(serverCharacters[3].editable) ? false : true"/>
+    <br>
+    <label>Inteligencia:</label>
+    <input type="text" [(ngModel)]="serverCharacters[3].intelligence" [disabled]="(serverCharacters[3].editable) ? false : true"/>
+    <br>
+    <label>Constitucion:</label>
+    <input type="text" [(ngModel)]="serverCharacters[3].life" [disabled]="(serverCharacters[3].editable) ? false : true"/>
+    <br>
+    <br>
+    <input type="button" (click)="editar(serverCharacters[3])" [value] = "(serverCharacters[3].boton)"/>
+    <!-- Aquí va toda la información del character para que se vea en formato Card -->
+  </div>
+
+  <!-- Dentro del parágrafo va la información del Character que se está modifcando -->
+  <p></p>
+
+  <div class="card">
+    <label>Nombre:</label>
+    <input type="text" [(ngModel)]="serverCharacters[4].name" [disabled]="(serverCharacters[4].editable) ? false : true"/>
+    <br>
+    <label>Fuerza:</label>
+    <input type="text" [(ngModel)]="serverCharacters[4].strength" [disabled]="(serverCharacters[4].editable) ? false : true"/>
+    <br>
+    <label>Destreza:</label>
+    <input type="text" [(ngModel)]="serverCharacters[4].agility" [disabled]="(serverCharacters[4].editable) ? false : true"/>
+    <br>
+    <label>Inteligencia:</label>
+    <input type="text" [(ngModel)]="serverCharacters[4].intelligence" [disabled]="(serverCharacters[4].editable) ? false : true"/>
+    <br>
+    <label>Constitucion:</label>
+    <input type="text" [(ngModel)]="serverCharacters[4].life" [disabled]="(serverCharacters[4].editable) ? false : true"/>
+    <br>
+    <br>
+    <input type="button" (click)="editar(serverCharacters[4])" [value] = "(serverCharacters[4].boton)"/>
+    <!-- Aquí va toda la información del character para que se vea en formato Card -->
+  </div>
+
+  <!-- Dentro del parágrafo va la información del Character que se está modifcando -->
+  <p></p>
+</div>

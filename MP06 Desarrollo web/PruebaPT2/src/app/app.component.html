@@ -1,0 +1,47 @@
+<div>
+    <div class="colocar">
+      <h1>Ficha de Personaje</h1>
+      <label>Nombre:</label>
+      <input type="text" [(ngModel)]="Nombres[nombre]">
+      <br>
+      <label>Fuerza:</label>
+      <input type="text" disabled="{{ _disabled }}" [value]="fuerza" />
+      <br>
+      <label>Destreza:</label>
+      <input type="text" disabled="{{ _disabled }}" [value]="destreza" />
+      <br>
+      <label>Inteligencia:</label>
+      <input type="text" disabled="{{ _disabled }}" [value]="inteligencia" />
+      <br>
+      <label>Constitucion:</label>
+      <input type="text" disabled="{{ _disabled }}" [value]="constitucion"/>
+      <br>
+      <br>
+      <input type="button" [value]="'Generar'" (click)="generarValoresRandom($event, fuerza, destreza, inteligencia, constitucion, nombre)"
+      />
+      <br>
+      <input
+      type="button" [value]="'Guardar'" (click)="guardar($event, fuerza, destreza, inteligencia, constitucion, Nombres, nombre, datos)"
+      />
+    </div>
+    <div class="colocar" style="margin-left: 50px;">
+      <h1>Personaje Guardado</h1>
+      <label>Nombre:</label>
+      <input type="text" disabled="{{ _disabled }}" [value]="datos[0]" />
+      <br>
+      <label>Fuerza:</label>
+      <input type="text" disabled="{{ _disabled }}" [value]="datos[1]" />
+      <br>
+      <label>Destreza:</label>
+      <input type="text" disabled="{{ _disabled }}" [value]="datos[2]" />
+      <br>
+      <label>Inteligencia:</label>
+      <input type="text" disabled="{{ _disabled }}" [value]="datos[3]" />
+      <br>
+      <label>Constitucion:</label>
+      <input type="text" disabled="{{ _disabled }}" [value]="datos[4]" />
+      <br><br><br><br>
+    </div>
+</div>
+  
+
