@@ -19,6 +19,7 @@ interface Character {
 export class AppComponent {
 
   serverCharacters: Character[] = [];
+  print:string = '';
 
   constructor() {
     // Ejemplo de respuesta de un servidor en formato JSON
@@ -34,7 +35,7 @@ export class AppComponent {
     this.serverCharacters = JSON.parse(serverJson);
   }
 
-  editar(Character:Character) {
+  editar(Character:Character, print:string):any {
     console.log(Character.editable);
     if(Character.editable == false){
       Character.editable = true;
@@ -43,7 +44,9 @@ export class AppComponent {
       Character.editable = false;
       Character.boton = "Edit";
     }
-    Character.printar = ('"name": "' + Character.name + '"strength"' + Character.strength + '"agillity"' + Character.agility + '"intelligence"' + Character.intelligence + '"life"' + Character.life);
+    Character.printar = ("name: /" + Character.name + "/ strength: /" + Character.strength + "/ agillity: /" + Character.agility + " /intelligence: /" + Character.intelligence + "/ life: /" + Character.life);
+  
+    return print = JSON.stringify(Character.printar);
   }
 
 }

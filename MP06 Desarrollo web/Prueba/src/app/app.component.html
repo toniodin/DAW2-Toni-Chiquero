@@ -16,12 +16,8 @@
     <input type="text" [(ngModel)]="serverCharacters[0].life" [disabled]="(serverCharacters[0].editable) ? false : true"/>
     <br>
     <br>
-    <input type="button" (click)="editar(serverCharacters[0])" [value] = "(serverCharacters[0].boton)"/>
-    <!-- Aquí va toda la información del character para que se vea en formato Card -->
+    <input type="button" (click)="print = editar(serverCharacters[0],print)" [value] = "(serverCharacters[0].boton)"/>
   </div>
-
-  <!-- Dentro del parágrafo va la información del Character que se está modifcando -->
-  <p></p>
 
   <div class="card">
     <label>Nombre:</label>
@@ -40,12 +36,8 @@
     <input type="text" [(ngModel)]="serverCharacters[1].life" [disabled]="(serverCharacters[1].editable) ? false : true"/>
     <br>
     <br>
-    <input type="button" (click)="editar(serverCharacters[1])" [value] = "(serverCharacters[1].boton)"/>
-    <!-- Aquí va toda la información del character para que se vea en formato Card -->
+    <input type="button" (click)="print = editar(serverCharacters[1],print)" [value] = "(serverCharacters[1].boton)"/>
   </div>
-
-  <!-- Dentro del parágrafo va la información del Character que se está modifcando -->
-  <p></p>
 
   <div class="card">
     <label>Nombre:</label>
@@ -64,12 +56,9 @@
     <input type="text" [(ngModel)]="serverCharacters[2].life" [disabled]="(serverCharacters[2].editable) ? false : true"/>
     <br>
     <br>
-    <input type="button" (click)="editar(serverCharacters[2])" [value] = "(serverCharacters[2].boton)"/>
-    <!-- Aquí va toda la información del character para que se vea en formato Card -->
+    <input type="button" (click)="print = editar(serverCharacters[2],print)" [value] = "(serverCharacters[2].boton)"/>
   </div>
 
-  <!-- Dentro del parágrafo va la información del Character que se está modifcando -->
-  <p></p>
 
   <div class="card">
     <label>Nombre:</label>
@@ -88,12 +77,9 @@
     <input type="text" [(ngModel)]="serverCharacters[3].life" [disabled]="(serverCharacters[3].editable) ? false : true"/>
     <br>
     <br>
-    <input type="button" (click)="editar(serverCharacters[3])" [value] = "(serverCharacters[3].boton)"/>
+    <input type="button" (click)="print = editar(serverCharacters[3],print)" [value] = "(serverCharacters[3].boton)"/>
     <!-- Aquí va toda la información del character para que se vea en formato Card -->
   </div>
-
-  <!-- Dentro del parágrafo va la información del Character que se está modifcando -->
-  <p></p>
 
   <div class="card">
     <label>Nombre:</label>
@@ -112,10 +98,10 @@
     <input type="text" [(ngModel)]="serverCharacters[4].life" [disabled]="(serverCharacters[4].editable) ? false : true"/>
     <br>
     <br>
-    <input type="button" (click)="editar(serverCharacters[4])" [value] = "(serverCharacters[4].boton)"/>
+    <input type="button" (click)="print = editar(serverCharacters[4],print)" [value] = "(serverCharacters[4].boton)"/>
     <!-- Aquí va toda la información del character para que se vea en formato Card -->
   </div>
 
   <!-- Dentro del parágrafo va la información del Character que se está modifcando -->
-  <p></p>
+  <p>{{print}}</p>
 </div>
