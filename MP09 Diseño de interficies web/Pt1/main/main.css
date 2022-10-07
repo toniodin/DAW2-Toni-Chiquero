@@ -131,3 +131,83 @@ body {
     width: 650px;
     margin-left: 155px;
 }
+
+.imagenRaids{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 650px;
+    margin-left: 50px;
+}
+
+.Contact_Card {
+    width: 600px;
+    height: 500px;
+    border: 1px solid lightgray;
+    border-radius: 1rem;
+    padding: 2rem;
+    display: grid;
+    margin-left: 30%;
+  }
+  
+  .Input_Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .Text_Container {
+    grid-column: span 2;
+  }
+  
+  .Button_Container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: 200px;
+  }
+  
+  .inputTextarea {
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    padding-bottom: 0.5rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    border: 2px solid lightblue;
+    border-radius: 0.5rem;
+    width: 100%;
+  }
+
+  .Input {
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    padding-bottom: 0.5rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    border-radius: 0.5rem;
+  }
+  
+  .Label {
+    padding-bottom: 0.25rem;
+    font-weight: 600;
+    color: white;
+  }
+  
+  .Button {
+    background-color: darkblue;
+    border-color: #dbdbdb;
+    border-width: 1px;
+    color: white;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    padding: 1rem 1.5rem;
+  }
+  
+  .Button:hover {
+    outline: none;
+    border-color: #485fc7;
+    color: #363636;
+    box-shadow: 0 0 0 0.125em rgba(72, 95, 199, 0.25);
+  }
