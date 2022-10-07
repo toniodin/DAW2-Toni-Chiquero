@@ -1,6 +1,10 @@
 <?php
 
-//session_start();
+session_start();
+$_SESSION['id'];
+$_SESSION['usuario'] = $_GET['usuario'];
+var_dump($_SESSION['usuario']);
+
 
 $nombre = $_GET['nombre'];
 $precio = $_GET['precio'];
@@ -28,36 +32,38 @@ if($con){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leer Formulario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Mis productos</a>
+          <a class="navbar-brand" href="#"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarColor01">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="main.php">Home</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="leerProductos.php">Leer productos</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="actualizarProductos.php">Actualizar productos</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="borrarProductos.php">Borrar productos</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="Login.php">Login</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="Registrar.php">Registrarse</a>
-              </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="main.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="leerProductos.php">Leer productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="actualizarProductos.php">Actualizar productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="borrarProductos.php">Borrar productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="Login.php">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="Registrar.php">Registrarse</a>
+                </li>
               </ul>
+              <i class="fa fa-cart-plus" aria-hidden="true" style="color:white;font-size:40px;padding-right:5%"></i>
               <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Buscador por ID" name="buscador" aria-label="Buscador por ID">
               <button class="btn btn-outline-light" type="submit" name="">Buscar</button>
@@ -67,6 +73,7 @@ if($con){
   </nav>
 <div class="container mt-3">
 <h1 style="text-align:center">Listado de productos</h1>
+<h3 style="text-align:center">Si desea añadir al carrito presione en cualquiera de las filas</h3>
   <table class="table table-dark table-hover">
     <tbody>
       <tr>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 03-10-2022 a las 17:49:09
+-- Tiempo de generación: 07-10-2022 a las 18:09:03
 -- Versión del servidor: 5.7.36
 -- Versión de PHP: 8.1.3
 
@@ -65,7 +65,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `usuario`, `pass`, `admin`, `nombre`, `apellidos`, `email`) VALUES
-(1, 'toni', '$2y$10$vbNYNgu/o9i5VpV5WfXPheU.BgRck9fk3vZVPF9bF5Jbg36d7htli', 1, 'toni', 'chiquero encinas', 'toni@admin.com');
+(6, 'Toni', '72a38e065414e78a6d07410d31b5205fcd65fa28', 1, 'Toni', 'Chiquero', 'toni@mail.com');
 
 --
 -- Índices para tablas volcadas
@@ -97,7 +97,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

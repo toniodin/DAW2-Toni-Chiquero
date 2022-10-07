@@ -1,9 +1,32 @@
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<head>
+  <body>
+
+  <script>
+    function error(){
+          swal({
+               title: "Login incorrecto",
+               text: "Login incorrecto!!!",
+               icon: "error",
+               button: "Ok",
+               timer: 10000
+          });
+     }
+</script>
+
+</body>
+</html>
+
 
 <?php
-
-//session_start();
+session_start();
+$_SESSION["usuario"] ="";
+$_SESSION["id"] ="";
 
 $id = $_GET['id'];
 $nombre = $_GET['nombre'];
@@ -11,7 +34,7 @@ $precio = $_GET['precio'];
 $cantidad = $_GET['cantidad'];
 $descripcion = $_GET['descripcion'];
 $n_usuario = $_GET['usuario'];
-$contraseña = $_GET['contraseña'];
+$contraseña = $_GET['pass'];
 $email = $_GET['email'];
 $apellidos = $_GET['apellidos'];
 
@@ -60,34 +83,29 @@ if(!$con){
      $sql2="SELECT * FROM `usuarios`";
      $consulta=mysqli_query($con,$sql2);
      while($fila=$consulta->fetch_assoc()){
-          $hash=password_hash($contraseña, PASSWORD_DEFAULT);
-          var_dump($fila['usuario']);
-          var_dump($n_usuario);
-          var_dump($hash);
-          var_dump($fila['pass']);
-          
-          if ($fila['usuario'] == $n_usuario && $fila['pass'] == $hash) {
-               var_dump($fila['usuario']);
-               var_dump($n_usuario);
-              // var_dump($hash);
+          $contraseñaEncriptada = sha1($contraseña);
+          if ($fila['usuario'] == $n_usuario && $fila['pass'] == $contraseñaEncriptada) {
+               $_SESSION["id"] == $fila['id'];
+               $_SESSION["usuario"] = $fila['usuario'];
                sleep(2);
                header('Location: main.php');
                exit();
           } else {
-          // var_dump('La contraseña no es válida.');
-          // var_dump($fila['usuario'],'user','pass',$fila['contraseña']);
+               echo "<script>";
+               echo "error();";
+               echo "</script>";
+               header('Location: Login.php');
+               exit();
           }
      }
 
    }elseif(isset($_GET['registrarseBtn'])){
 
-     $hash=password_hash($contraseña, PASSWORD_DEFAULT);
-     
+     $contraseña = sha1($contraseña);
      mysqli_set_charset($con,"utf8");
      $sql="INSERT INTO `usuarios`(`id`, `usuario`, `pass`, `admin`, `nombre`,`apellidos`,`email`) 
-                VALUES (NULL,'$n_usuario','$hash',0,'$nombre','$apellidos','$email')";
+                VALUES (NULL,'$n_usuario','$contraseña',0,'$nombre','$apellidos','$email')";
      $consulta=mysqli_query($con,$sql);
-     password_verify($contraseña, $hash);
      sleep(2);
      header('Location: login.php');
      exit();
@@ -95,6 +113,9 @@ if(!$con){
 
 }
 ?>
+
+
+
 
 
 

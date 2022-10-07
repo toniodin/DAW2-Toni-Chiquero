@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -138,10 +141,10 @@
                     <a class="nav-link" href="borrarProductos.php">Borrar productos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="Login.php">Login</a>
+                    <a class="nav-link" href="Login.php">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="Registrar.php">Registrarse</a>
+                    <a class="nav-link" href="Registrar.php">Registrarse</a>
                 </li>
                 </ul>
             </div>
@@ -161,7 +164,7 @@
             </div>
             <div class="form-field d-flex align-items-center">
                 <span class="fas fa-key"></span>
-                <input type="password" name="contraseña" id="pwd" placeholder="Contraseña">
+                <input type="password" name="pass" id="pwd" placeholder="Contraseña">
             </div>
             <button class="btn mt-3" name="loginBtn">Login</button>
         </form>
