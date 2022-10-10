@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"<Unnamed>","c":"JuegoDeDados","l":"excepcion()"},{"p":"<Unnamed>","c":"JuegoDeDados","l":"iniciar()"},{"p":"<Unnamed>","c":"JuegoDeDados","l":"JuegoDeDados()","u":"%3Cinit%3E()"},{"p":"<Unnamed>","c":"JuegoDeDados","l":"jugar()"}];updateSearchResults();

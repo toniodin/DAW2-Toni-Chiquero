@@ -1,6 +1,7 @@
 <?php
 session_start();
 $_SESSION['id'];
+$_SESSION['usuario'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +11,7 @@ $_SESSION['id'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>  
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -18,7 +20,7 @@ $_SESSION['id'];
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-        <a class="navbar-brand" href="#">Mis productos</a>
+        <a class="navbar-brand" href="#"><?=$_SESSION['usuario']?></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -43,6 +45,7 @@ $_SESSION['id'];
                     <a class="nav-link" aria-current="page" href="Registrar.php">Registrarse</a>
                 </li>
                 </ul>
+                <img src="https://cdn.pixabay.com/photo/2017/05/29/23/02/logging-out-2355227_1280.png" alt="" style="height:40px; width:40px;">
             </div>
         </div>
   </nav>

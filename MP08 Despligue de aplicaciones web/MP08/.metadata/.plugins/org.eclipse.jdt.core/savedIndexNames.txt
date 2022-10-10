@@ -1,0 +1,2 @@
+INDEX VERSION 1.131+D:\DAW2\DAW2-Toni-Chiquero\MP08 Despligue de aplicaciones web\MP08\.metadata\.plugins\org.eclipse.jdt.core
+3076478058.index

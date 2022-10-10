@@ -2,9 +2,7 @@
 
 session_start();
 $_SESSION['id'];
-$_SESSION['usuario'] = $_GET['usuario'];
-var_dump($_SESSION['usuario']);
-
+$_SESSION['usuario'];
 
 $nombre = $_GET['nombre'];
 $precio = $_GET['precio'];
@@ -38,7 +36,7 @@ if($con){
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"></a>
+          <a class="navbar-brand" href="#"><?=$_SESSION['usuario']?></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
@@ -65,9 +63,10 @@ if($con){
               </ul>
               <i class="fa fa-cart-plus" aria-hidden="true" style="color:white;font-size:40px;padding-right:5%"></i>
               <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Buscador por ID" name="buscador" aria-label="Buscador por ID">
-              <button class="btn btn-outline-light" type="submit" name="">Buscar</button>
+                <input class="form-control me-2" type="search" placeholder="Buscador por ID" name="buscador" aria-label="Buscador por ID">
+                <button class="btn btn-outline-light" type="submit" name="" style="margin-right:10px ;">Buscar</button>
               </form>
+                <button class="btn btn-outline-light" name="Logout"><a href="LogOut.php" onclick="return confirm('Estas seguro?');">Log out</a></button>
           </div>
         </div>
   </nav>
@@ -115,24 +114,20 @@ if($con){
 
 <?php
 }
-?>
-<script>
-    <?php
-    function buscador($con,$buscador){
-        $sql2="SELECT * FROM `productos` where `id` = $buscador";
-        //var_dump($sql2);
-        $consulta=mysqli_query($con,$sql2);
-        while($fila=$consulta->fetch_assoc()){
-            echo "<tr>";
-            echo "<td>".$fila["id"]."</td>";
-            echo "<td>".$fila["nombre"]."</td>";
-            echo "<td>".$fila["cantidad"]."</td>";
-            echo "<td>".$fila["precio"]."</td>";
-            echo "<td>".$fila["descripcion"]."</td>";
-            echo "</tr>";
-        }
-        $buscador = NULL;
+  function buscador($con,$buscador){
+    $sql2="SELECT * FROM `productos` where `id` = $buscador";
+    //var_dump($sql2);
+    $consulta=mysqli_query($con,$sql2);
+    while($fila=$consulta->fetch_assoc()){
+        echo "<tr>";
+        echo "<td>".$fila["id"]."</td>";
+        echo "<td>".$fila["nombre"]."</td>";
+        echo "<td>".$fila["cantidad"]."</td>";
+        echo "<td>".$fila["precio"]."</td>";
+        echo "<td>".$fila["descripcion"]."</td>";
+        echo "</tr>";
     }
-    ?>
-</script>
+    $buscador = NULL;
+  }
+?>
 
