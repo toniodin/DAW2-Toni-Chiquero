@@ -152,7 +152,7 @@ session_start();
   </nav>
     <div class="wrapper">
         <div class="logo">
-            <img src="https://cdn.icon-icons.com/icons2/1369/PNG/512/-person_90382.png" alt="">
+            <img src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="">
         </div>
         <div class="text-center mt-4 name">
             Login
@@ -174,5 +174,5 @@ session_start();
     </div>
 </body>
 </html>
-<script>
+<script  type="text/javascript">
 </script>

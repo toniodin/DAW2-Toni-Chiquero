@@ -32,6 +32,7 @@ if($con){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -66,7 +67,8 @@ if($con){
                 <input class="form-control me-2" type="search" placeholder="Buscador por ID" name="buscador" aria-label="Buscador por ID">
                 <button class="btn btn-outline-light" type="submit" name="" style="margin-right:10px ;">Buscar</button>
               </form>
-                <button class="btn btn-outline-light" name="Logout"><a href="LogOut.php" onclick="return confirm('Estas seguro?');">Log out</a></button>
+              <button class="delete btn btn-outline-light" type="submit"><a style="text-decoration: none; color:white" onclick="cerrarSesion(event)" 
+              href="Login.php">Logout</a></button>
           </div>
         </div>
   </nav>
@@ -130,4 +132,26 @@ if($con){
     $buscador = NULL;
   }
 ?>
+<script type="text/javascript">
+    function cerrarSesion(event) {
+      event.preventDefault();
+      swal({
+        title: "Seguro desea cerrar sesión?",
+        text: "Una vez cerrada tendrá que logear de nuevo",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("Redirigiendo...", {
+            icon: "success",
+          });
+          window.location.href = "Login.php";
+        } else {
+          swal("Su sesión no se ha cerrado");
+        }
+      });
+    }
+</script>
 

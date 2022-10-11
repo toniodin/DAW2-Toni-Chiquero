@@ -37,14 +37,9 @@ $_SESSION['usuario'];
                 <li class="nav-item">
                     <a class="nav-link" href="borrarProductos.php">Borrar productos</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="Login.php">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="Registrar.php">Registrarse</a>
-                </li>
                 </ul>
-                <img src="https://cdn.pixabay.com/photo/2017/05/29/23/02/logging-out-2355227_1280.png" alt="" style="height:40px; width:40px;">
+                <button class="delete btn btn-outline-light" type="submit"><a style="text-decoration: none; color:white" onclick="cerrarSesion(event)" 
+              href="Login.php">Logout</a></button>
             </div>
         </div>
   </nav>
@@ -63,3 +58,26 @@ $_SESSION['usuario'];
     </div>
 </body>
 </html>
+
+<script type="text/javascript">
+    function cerrarSesion(event) {
+      event.preventDefault();
+      swal({
+        title: "Seguro desea cerrar sesión?",
+        text: "Una vez cerrada tendrá que logear de nuevo",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("Redirigiendo...", {
+            icon: "success",
+          });
+          window.location.href = "Login.php";
+        } else {
+          swal("Su sesión no se ha cerrado");
+        }
+      });
+    }
+</script>

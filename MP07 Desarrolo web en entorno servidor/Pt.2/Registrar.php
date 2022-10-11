@@ -183,7 +183,7 @@
     </div>
 </body>
 </html>
-<script>
+<script  type="text/javascript">
     function notificarEnvio(){
         swal({
             title: "Se han enviado los datos a registrar!",

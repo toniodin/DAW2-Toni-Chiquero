@@ -6,19 +6,23 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <head>
   <body>
-
-  <script>
+  <script type="text/javascript">
     function error(){
           swal({
-               title: "Login incorrecto",
-               text: "Login incorrecto!!!",
-               icon: "error",
-               button: "Ok",
-               timer: 10000
-          });
+               icon: 'error',
+               title: 'Oops...',
+               text: 'Login erróneo!',
+               dangerMode: true,
+          }).then((willDelete) => {
+          if (willDelete) {
+               swal("Redirigiendo...", {
+               icon: "success",
+               });
+               window.location.href = "Login.php";
+          }
+      });
      }
 </script>
-
 </body>
 </html>
 
@@ -84,18 +88,28 @@ if(!$con){
      $consulta=mysqli_query($con,$sql2);
      while($fila=$consulta->fetch_assoc()){
           $contraseñaEncriptada = sha1($contraseña);
+          var_dump($fila['usuario']);
+          var_dump($_usuario);
+          var_dump($fila['pass']);
+          var_dump($contraseñaEncriptada);
           if ($fila['usuario'] == $n_usuario && $fila['pass'] == $contraseñaEncriptada) {
                $_SESSION["id"] == $fila['id'];
                $_SESSION["usuario"] = $fila['usuario'];
-               sleep(2);
-               header('Location: main.php');
-               exit();
+               $_SESSION["admin"] = $fila['admin'];
+               if($_SESSION["admin"] == 1){
+                    sleep(2);
+                    header('Location: main.php');
+                    exit();
+               }else{
+                    sleep(2);
+                    header('Location: leerProductos.php');
+                    exit();
+               }
+              
           } else {
                echo "<script>";
-               echo "error();";
+               echo "error(event);";
                echo "</script>";
-               header('Location: Login.php');
-               exit();
           }
      }
 
