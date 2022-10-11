@@ -88,11 +88,10 @@ if(!$con){
      $consulta=mysqli_query($con,$sql2);
      while($fila=$consulta->fetch_assoc()){
           $contraseñaEncriptada = sha1($contraseña);
-          var_dump($fila['usuario']);
-          var_dump($_usuario);
           var_dump($fila['pass']);
           var_dump($contraseñaEncriptada);
           if ($fila['usuario'] == $n_usuario && $fila['pass'] == $contraseñaEncriptada) {
+               var_dump("entro");
                $_SESSION["id"] == $fila['id'];
                $_SESSION["usuario"] = $fila['usuario'];
                $_SESSION["admin"] = $fila['admin'];
