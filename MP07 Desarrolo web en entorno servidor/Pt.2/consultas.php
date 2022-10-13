@@ -38,7 +38,7 @@ $precio = $_GET['precio'];
 $cantidad = $_GET['cantidad'];
 $descripcion = $_GET['descripcion'];
 $n_usuario = $_GET['usuario'];
-$contraseña = $_GET['pass'];
+$pass = $_GET['pass'];
 $email = $_GET['email'];
 $apellidos = $_GET['apellidos'];
 
@@ -87,7 +87,7 @@ if(!$con){
      $sql2="SELECT * FROM `usuarios`";
      $consulta=mysqli_query($con,$sql2);
      while($fila=$consulta->fetch_assoc()){
-          $contraseñaEncriptada = sha1($contraseña);
+          $contraseñaEncriptada = sha1($pass);
           var_dump($fila['pass']);
           var_dump($contraseñaEncriptada);
           if ($fila['usuario'] == $n_usuario && $fila['pass'] == $contraseñaEncriptada) {
@@ -113,11 +113,10 @@ if(!$con){
      }
 
    }elseif(isset($_GET['registrarseBtn'])){
-
-     $contraseña = sha1($contraseña);
+     $contraseñaEncriptada = sha1($pass);
      mysqli_set_charset($con,"utf8");
      $sql="INSERT INTO `usuarios`(`id`, `usuario`, `pass`, `admin`, `nombre`,`apellidos`,`email`) 
-                VALUES (NULL,'$n_usuario','$contraseña',0,'$nombre','$apellidos','$email')";
+                VALUES (NULL,'$n_usuario','$contraseñaEncriptada',0,'$nombre','$apellidos','$email')";
      $consulta=mysqli_query($con,$sql);
      sleep(2);
      header('Location: login.php');

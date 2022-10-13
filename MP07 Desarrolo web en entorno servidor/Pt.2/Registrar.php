@@ -125,24 +125,6 @@
         </button>
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="main.php">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="leerProductos.php">Leer productos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="actualizarProductos.php">Actualizar productos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="borrarProductos.php">Borrar productos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="Login.php">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="Registrar.php">Registrarse</a>
-                </li>
                 </ul>
             </div>
         </div>
@@ -165,7 +147,7 @@
             </div>
             <div class="form-field d-flex align-items-center">
                 <span class="fas fa-key"></span>
-                <input type="password" name="contraseña" id="contraseña" placeholder="contraseña">
+                <input type="password" name="pass" id="pass" placeholder="contraseña">
             </div>
             <div class="form-field d-flex align-items-center">
                 <span class="fas fa-key"></span>

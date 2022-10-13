@@ -2,6 +2,11 @@
 session_start();
 $_SESSION['id'];
 $_SESSION['usuario'];
+$_SESSION['admin'];
+
+if($_SESSION['admin'] == 1){
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,6 +74,9 @@ $_SESSION['usuario'];
     </div>
 </body>
 </html>
+<?php
+}
+?>
 <script type="text/javascript">
 $(document).ready(function() {
    

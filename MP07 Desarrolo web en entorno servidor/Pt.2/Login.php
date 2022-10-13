@@ -128,24 +128,6 @@ session_start();
         </button>
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="main.php">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="leerProductos.php">Leer productos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="actualizarProductos.php">Actualizar productos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="borrarProductos.php">Borrar productos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Login.php">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Registrar.php">Registrarse</a>
-                </li>
                 </ul>
             </div>
         </div>
@@ -169,7 +151,7 @@ session_start();
             <button class="btn mt-3" name="loginBtn">Login</button>
         </form>
         <div class="text-center fs-6">
-            <a href="#">Olvidó su contraseña?</a> or <a href="Registrar.php">Registrarse</a>
+            <a href="#">Olvidó su contraseña?</a> o <a href="Registrar.php">Registrarse</a>
         </div>
     </div>
 </body>
