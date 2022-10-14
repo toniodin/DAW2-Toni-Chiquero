@@ -29,8 +29,8 @@
 
 <?php
 session_start();
-$_SESSION["usuario"] ="";
-$_SESSION["id"] ="";
+$iduser = $_SESSION["usuario"];
+$_SESSION["id"];
 
 $id = $_GET['id'];
 $nombre = $_GET['nombre'];
@@ -54,6 +54,7 @@ $con=mysqli_connect($servidor,$usuario,$password,$bd);
 if(!$con){
     die("No se ha podido realizar la conexión_".mysqli_connect_error()."<br>");
 }else{
+     
    if(isset($_GET['updateBtn'])){
 
         mysqli_set_charset($con,"utf8");
@@ -121,6 +122,13 @@ if(!$con){
      sleep(2);
      header('Location: login.php');
      exit();
+   }elseif(isset($_GET['btnCarro'])){
+     
+     var_dump($_GET['id']);
+     $sqlCarro="INSERT INTO `carrito`(`id`, `idusuario`) VALUES ($id,$iduser)";
+     var_dump($sqlCarro);
+     $consulta=mysqli_query($con,$sqlCarro);
+     var_dump($sqlCarro);
    }
 
 }
