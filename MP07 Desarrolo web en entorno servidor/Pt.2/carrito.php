@@ -49,7 +49,7 @@ $con=mysqli_connect($servidor,$usuario,$password,$bd);
                       <a class="nav-link" href="leerProductos.php">Leer productos</a>
                   </li>
                 </ul>
-                <i class="fa fa-cart-plus" aria-hidden="true" style="color:white;font-size:40px;padding-right:5%"></i>
+                <a href="carrito.php" style="padding-right:5%"><i class="fa fa-cart-plus" aria-hidden="true" style="color:white;font-size:40px;padding-right:5%"></i></a>
                 <form class="d-flex">
                   <input class="form-control me-2" type="search" placeholder="Buscador por ID o nombre" name="buscador" aria-label="Buscador por ID">
                   <button class="btn btn-outline-light" type="submit" name="" style="margin-right:10px ;">Buscar</button>
@@ -66,8 +66,6 @@ $con=mysqli_connect($servidor,$usuario,$password,$bd);
         <tr>
           <th>ID Producto</th>
           <th>Nombre Producto</th>
-          <th>Cantidad</th>
-          <th>Precio</th>
           <th>Descripción</th>
         </tr>
         <?php
@@ -77,13 +75,12 @@ $con=mysqli_connect($servidor,$usuario,$password,$bd);
           buscador($con,$buscador);
         }else{
           //var_dump($_GET['buscador']);
-          $sql2="SELECT * FROM `carrito c` INNER JOIN `usuario u` ON c.idusuario = u.id INNER JOIN `productos p` ON c.id = p.id";
+          $sql2="SELECT * FROM `carrito`,`usuarios`,`productos` WHERE carrito.usuario = usuarios.Nombre AND carrito.id = productos.id";
           var_dump($sql2);
           $consulta=mysqli_query($con,$sql2);
           while($fila=$consulta->fetch_assoc()){
             echo "<tr>";
             echo "<td>".$fila["id"]."</td>";
-            echo "<td>".$fila["idusuario"]."</td>";
             echo "<td>".$fila["nombre"]."</td>";
             echo "<td>".$fila["descripcion"]."</td>";
             echo "</tr>";

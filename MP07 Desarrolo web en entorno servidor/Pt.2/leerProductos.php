@@ -182,7 +182,7 @@ if($_SESSION['admin'] == 1){
                 <td><?=$fila['precio']?></td>
                 <td><?=$fila['descripcion']?></td>
                 <td>
-                  <button type="submit" style="color:black;font-size:20px;padding-right:5%" id = "<?=$fila['id']?>" iduser = "<?=$_SESSION['usuario']?>" name="btnCarro">Añadir</button>
+                  <button type="submit" style="color:black;font-size:20px;padding-right:5%" value = "<?=$fila['id']?>" iduser = "<?=$_SESSION['usuario']?>" name="btnCarro">Añadir</button>
                 </td>
                 </tr>
               <from>

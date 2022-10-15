@@ -22,6 +22,22 @@
           }
       });
      }
+
+     function addCart(){
+          swal({
+               icon: 'success',
+               title: 'Added',
+               text: 'Se ha sumado su producto al carrito!',
+               dangerMode: true,
+          }).then((willDelete) => {
+          if (willDelete) {
+               swal("Redirigiendo...", {
+               icon: "success",
+               });
+               window.location.href = "leerProductos.php";
+          }
+      });
+     }
 </script>
 </body>
 </html>
@@ -31,7 +47,6 @@
 session_start();
 $iduser = $_SESSION["usuario"];
 $_SESSION["id"];
-
 $id = $_GET['id'];
 $nombre = $_GET['nombre'];
 $precio = $_GET['precio'];
@@ -89,10 +104,7 @@ if(!$con){
      $consulta=mysqli_query($con,$sql2);
      while($fila=$consulta->fetch_assoc()){
           $contraseñaEncriptada = sha1($pass);
-          var_dump($fila['pass']);
-          var_dump($contraseñaEncriptada);
           if ($fila['usuario'] == $n_usuario && $fila['pass'] == $contraseñaEncriptada) {
-               var_dump("entro");
                $_SESSION["id"] == $fila['id'];
                $_SESSION["usuario"] = $fila['usuario'];
                $_SESSION["admin"] = $fila['admin'];
@@ -124,11 +136,12 @@ if(!$con){
      exit();
    }elseif(isset($_GET['btnCarro'])){
      
-     var_dump($_GET['id']);
-     $sqlCarro="INSERT INTO `carrito`(`id`, `idusuario`) VALUES ($id,$iduser)";
-     var_dump($sqlCarro);
+     $idRow = $_GET['btnCarro'];
+     $sqlCarro="INSERT INTO `carrito` (`id`, `usuario`) VALUES ('$idRow', '$iduser')";
      $consulta=mysqli_query($con,$sqlCarro);
-     var_dump($sqlCarro);
+     echo "<script>";
+     echo "addCart(event);";
+     echo "</script>";
    }
 
 }
