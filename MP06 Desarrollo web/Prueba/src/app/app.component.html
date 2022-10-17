@@ -1,107 +1,24 @@
 <div class="card-container">
-  <div class="card">
+  <div class="card" *ngFor="let Character of this.serverCharacters">
     <label>Nombre:</label>
-    <input type="text" [(ngModel)]="serverCharacters[0].name" [disabled]="(serverCharacters[0].editable) ? false : true"/>
+    <input type="text" [(ngModel)]="Character.name" [disabled]="(Character.editable) ? false : true"/>
     <br>
-    <label>Fuerza:</label>
-    <input type="text" [(ngModel)]="serverCharacters[0].strength" [disabled]="(serverCharacters[0].editable) ? false : true"/>
+    <label *ngIf="(Character.mostrar==true)">Fuerza:</label>
+    <input *ngIf="(Character.mostrar==true)" type="text" [(ngModel)]="Character.strength" [disabled]="(Character.editable) ? false : true"/>
     <br>
-    <label>Destreza:</label>
-    <input type="text" [(ngModel)]="serverCharacters[0].agility" [disabled]="(serverCharacters[0].editable) ? false : true"/>
+    <label *ngIf="(Character.mostrar==true)">Destreza:</label>
+    <input *ngIf="(Character.mostrar==true)" type="text" [(ngModel)]="Character.agility" [disabled]="(Character.editable) ? false : true"/>
     <br>
-    <label>Inteligencia:</label>
-    <input type="text" [(ngModel)]="serverCharacters[0].intelligence" [disabled]="(serverCharacters[0].editable) ? false : true"/>
+    <label *ngIf="(Character.mostrar==true)">Inteligencia:</label>
+    <input *ngIf="(Character.mostrar==true)" type="text" [(ngModel)]="Character.intelligence" [disabled]="(Character.editable) ? false : true"/>
     <br>
-    <label>Constitucion:</label>
-    <input type="text" [(ngModel)]="serverCharacters[0].life" [disabled]="(serverCharacters[0].editable) ? false : true"/>
+    <label *ngIf="(Character.mostrar==true)">Constitucion:</label>
+    <input *ngIf="(Character.mostrar==true)" type="text" [(ngModel)]="Character.life" [disabled]="(Character.editable) ? false : true"/>
     <br>
     <br>
-    <input type="button" (click)="print = editar(serverCharacters[0],print)" [value] = "(serverCharacters[0].boton)"/>
+    <input *ngIf="(Character.mostrar==true)" type="button" (click)="print = editar(Character,print)" [value] = "(Character.boton)"/>
+    <input type="button" (click)="print = mostrar(Character,print)" [value] = "(Character.boton2)"/>
   </div>
-
-  <div class="card">
-    <label>Nombre:</label>
-    <input type="text" [(ngModel)]="serverCharacters[1].name" [disabled]="(serverCharacters[1].editable) ? false : true"/>
-    <br>
-    <label>Fuerza:</label>
-    <input type="text" [(ngModel)]="serverCharacters[1].strength" [disabled]="(serverCharacters[1].editable) ? false : true"/>
-    <br>
-    <label>Destreza:</label>
-    <input type="text" [(ngModel)]="serverCharacters[1].agility" [disabled]="(serverCharacters[1].editable) ? false : true"/>
-    <br>
-    <label>Inteligencia:</label>
-    <input type="text" [(ngModel)]="serverCharacters[1].intelligence" [disabled]="(serverCharacters[1].editable) ? false : true"/>
-    <br>
-    <label>Constitucion:</label>
-    <input type="text" [(ngModel)]="serverCharacters[1].life" [disabled]="(serverCharacters[1].editable) ? false : true"/>
-    <br>
-    <br>
-    <input type="button" (click)="print = editar(serverCharacters[1],print)" [value] = "(serverCharacters[1].boton)"/>
-  </div>
-
-  <div class="card">
-    <label>Nombre:</label>
-    <input type="text" [(ngModel)]="serverCharacters[2].name" [disabled]="(serverCharacters[2].editable) ? false : true"/>
-    <br>
-    <label>Fuerza:</label>
-    <input type="text" [(ngModel)]="serverCharacters[2].strength" [disabled]="(serverCharacters[2].editable) ? false : true"/>
-    <br>
-    <label>Destreza:</label>
-    <input type="text" [(ngModel)]="serverCharacters[2].agility" [disabled]="(serverCharacters[2].editable) ? false : true"/>
-    <br>
-    <label>Inteligencia:</label>
-    <input type="text" [(ngModel)]="serverCharacters[2].intelligence" [disabled]="(serverCharacters[2].editable) ? false : true"/>
-    <br>
-    <label>Constitucion:</label>
-    <input type="text" [(ngModel)]="serverCharacters[2].life" [disabled]="(serverCharacters[2].editable) ? false : true"/>
-    <br>
-    <br>
-    <input type="button" (click)="print = editar(serverCharacters[2],print)" [value] = "(serverCharacters[2].boton)"/>
-  </div>
-
-
-  <div class="card">
-    <label>Nombre:</label>
-    <input type="text" [(ngModel)]="serverCharacters[3].name" [disabled]="(serverCharacters[3].editable) ? false : true"/>
-    <br>
-    <label>Fuerza:</label>
-    <input type="text" [(ngModel)]="serverCharacters[3].strength" [disabled]="(serverCharacters[3].editable) ? false : true"/>
-    <br>
-    <label>Destreza:</label>
-    <input type="text" [(ngModel)]="serverCharacters[3].agility" [disabled]="(serverCharacters[3].editable) ? false : true"/>
-    <br>
-    <label>Inteligencia:</label>
-    <input type="text" [(ngModel)]="serverCharacters[3].intelligence" [disabled]="(serverCharacters[3].editable) ? false : true"/>
-    <br>
-    <label>Constitucion:</label>
-    <input type="text" [(ngModel)]="serverCharacters[3].life" [disabled]="(serverCharacters[3].editable) ? false : true"/>
-    <br>
-    <br>
-    <input type="button" (click)="print = editar(serverCharacters[3],print)" [value] = "(serverCharacters[3].boton)"/>
-    <!-- Aquí va toda la información del character para que se vea en formato Card -->
-  </div>
-
-  <div class="card">
-    <label>Nombre:</label>
-    <input type="text" [(ngModel)]="serverCharacters[4].name" [disabled]="(serverCharacters[4].editable) ? false : true"/>
-    <br>
-    <label>Fuerza:</label>
-    <input type="text" [(ngModel)]="serverCharacters[4].strength" [disabled]="(serverCharacters[4].editable) ? false : true"/>
-    <br>
-    <label>Destreza:</label>
-    <input type="text" [(ngModel)]="serverCharacters[4].agility" [disabled]="(serverCharacters[4].editable) ? false : true"/>
-    <br>
-    <label>Inteligencia:</label>
-    <input type="text" [(ngModel)]="serverCharacters[4].intelligence" [disabled]="(serverCharacters[4].editable) ? false : true"/>
-    <br>
-    <label>Constitucion:</label>
-    <input type="text" [(ngModel)]="serverCharacters[4].life" [disabled]="(serverCharacters[4].editable) ? false : true"/>
-    <br>
-    <br>
-    <input type="button" (click)="print = editar(serverCharacters[4],print)" [value] = "(serverCharacters[4].boton)"/>
-    <!-- Aquí va toda la información del character para que se vea en formato Card -->
-  </div>
-
   <!-- Dentro del parágrafo va la información del Character que se está modifcando -->
   <p>{{print}}</p>
 </div>
