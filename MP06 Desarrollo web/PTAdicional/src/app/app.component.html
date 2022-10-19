@@ -1,12 +1,14 @@
 <div class="card-container">
-  <div class="card" *ngFor="let Character of this.serverCharacters">
-    <label>Nombre:</label>
-    <input type="text" [(ngModel)]="Character.name" [disabled]="(Character.editable) ? false : true"/>
-    <br>
-    <label *ngIf="(Character.mostrar==true)">Fuerza:</label>
-    <input *ngIf="(Character.mostrar==true)" type="text" [(ngModel)]="Character.strength" [disabled]="(Character.editable) ? false : true"/>
-    <br>
-    <label *ngIf="(Character.mostrar==true)">Destreza:</label>
+  
+  <div class="card">
+    <label>Encuentra las parejas:</label>
+    <div class="card" *ngFor="let Imagen of this.serverCharacters">
+      <img (click)="girar(Imagen)" *ngIf="(Imagen.estado=='defecto')" type="text" [src]="Imagen.nameEncontrado"/>
+      <img (click)="girar(Imagen)" *ngIf="(Imagen.estado=='girado')" type="text" [src]="Imagen.name"/>
+      <img (click)="girar(Imagen)" *ngIf="(Imagen.estado=='encontrado')" type="text" [src]="Imagen.name"/>
+    </div>
+    
+    <!-- <label *ngIf="(Character.mostrar==true)">Destreza:</label>
     <input *ngIf="(Character.mostrar==true)" type="text" [(ngModel)]="Character.agility" [disabled]="(Character.editable) ? false : true"/>
     <br>
     <label *ngIf="(Character.mostrar==true)">Inteligencia:</label>
@@ -16,9 +18,6 @@
     <input *ngIf="(Character.mostrar==true)" type="text" [(ngModel)]="Character.life" [disabled]="(Character.editable) ? false : true"/>
     <br>
     <br>
-    <input *ngIf="(Character.mostrar==true)" type="button" (click)="print = editar(Character,print)" [value] = "(Character.boton)"/>
-    <input type="button" (click)="print = mostrar(Character,print)" [value] = "(Character.boton2)"/>
+    <input type="button" (click)="print = mostrar(Character,print)" [value] = "(Character.boton2)"/> -->
   </div>
-  <!-- Dentro del parágrafo va la información del Character que se está modifcando -->
-  <p>{{print}}</p>
 </div>
