@@ -1,0 +1,23 @@
+<div class="card-container">
+  
+  <div class="card">
+    <label>Encuentra las parejas:</label>
+    <div class="card" *ngFor="let Imagen of this.serverCharacters">
+      <img (click)="girar(Imagen)" *ngIf="(Imagen.estado=='defecto')" type="text" [src]="Imagen.nameEncontrado"/>
+      <img (click)="girar(Imagen)" *ngIf="(Imagen.estado=='girado')" type="text" [src]="Imagen.name"/>
+      <img (click)="girar(Imagen)" *ngIf="(Imagen.estado=='encontrado')" type="text" [src]="Imagen.name"/>
+    </div>
+    
+    <!-- <label *ngIf="(Character.mostrar==true)">Destreza:</label>
+    <input *ngIf="(Character.mostrar==true)" type="text" [(ngModel)]="Character.agility" [disabled]="(Character.editable) ? false : true"/>
+    <br>
+    <label *ngIf="(Character.mostrar==true)">Inteligencia:</label>
+    <input *ngIf="(Character.mostrar==true)" type="text" [(ngModel)]="Character.intelligence" [disabled]="(Character.editable) ? false : true"/>
+    <br>
+    <label *ngIf="(Character.mostrar==true)">Constitucion:</label>
+    <input *ngIf="(Character.mostrar==true)" type="text" [(ngModel)]="Character.life" [disabled]="(Character.editable) ? false : true"/>
+    <br>
+    <br>
+    <input type="button" (click)="print = mostrar(Character,print)" [value] = "(Character.boton2)"/> -->
+  </div>
+</div>
