@@ -103,7 +103,7 @@ function cerrarSesion(event) {
           swal("Redirigiendo...", {
             icon: "success",
           });
-          window.location.href = "Login.php";
+          window.location.href = "logout.php";
         } else {
           swal("Su sesión no se ha cerrado");
         }

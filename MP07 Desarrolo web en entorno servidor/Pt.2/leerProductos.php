@@ -5,8 +5,6 @@ $iduser = $_SESSION['id'];
 $_SESSION['usuario'];
 $_SESSION['admin'];
 
-
-
 $nombre = $_GET['nombre'];
 $precio = $_GET['precio'];
 $cantidad = $_GET['cantidad'];
@@ -239,7 +237,7 @@ if($_SESSION['admin'] == 1){
           swal("Redirigiendo...", {
             icon: "success",
           });
-          window.location.href = "Login.php";
+          window.location.href = "logout.php";
         } else {
           swal("Su sesión no se ha cerrado");
         }
