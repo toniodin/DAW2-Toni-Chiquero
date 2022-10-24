@@ -76,7 +76,6 @@ $con=mysqli_connect($servidor,$usuario,$password,$bd);
         }else{
           //var_dump($_GET['buscador']);
           $sql2="SELECT * FROM `carrito`,`usuarios`,`productos` WHERE carrito.usuario = usuarios.Nombre AND carrito.id = productos.id";
-          var_dump($sql2);
           $consulta=mysqli_query($con,$sql2);
           while($fila=$consulta->fetch_assoc()){
             echo "<tr>";
@@ -101,7 +100,6 @@ $con=mysqli_connect($servidor,$usuario,$password,$bd);
 }
   function buscador($con,$buscador){
     $sql2="SELECT * FROM `productos` where `id` = '$buscador' OR `nombre` = '$buscador'";
-    var_dump($sql2);
     $consulta=mysqli_query($con,$sql2);
     while($fila=$consulta->fetch_assoc()){
         echo "<tr>";
@@ -132,7 +130,7 @@ $con=mysqli_connect($servidor,$usuario,$password,$bd);
           swal("Redirigiendo...", {
             icon: "success",
           });
-          window.location.href = "Login.php";
+          window.location.href = "logout.php";
         } else {
           swal("Su sesión no se ha cerrado");
         }
