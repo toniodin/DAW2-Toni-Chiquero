@@ -83,6 +83,40 @@ p{
 
 .FestivoRegional{
   border: solid 1px #660066;
-  border-radius: 25px;
+  border-bottom: solid 1px #660066 !important;
+  background-color: #660066;
+  width: 50px;
+  border-radius: 50%;
   background-color:'#660066';
+  font-weight: bold;
+}
+
+.FestivoLocal{
+  border: solid 1px violet;
+  border-bottom: solid 1px violet !important;
+  background-color: violet;
+  width: 50px;
+  border-radius: 50%;
+  background-color: 'violet';
+  font-weight: bold;
+}
+
+.FestivoNacional{
+  border: solid 1px green;
+  border-bottom: solid 1px green !important;
+  background-color: green;
+  width: 50px;
+  border-radius: 50%;
+  background-color: 'green';
+  font-weight: bold;
+}
+
+.FestivoCentro{
+  border: solid 1px yellow;
+  border-bottom: solid 1px yellow !important;
+  background-color: yellow;
+  width: 50px;
+  border-radius: 50%;
+  background-color: 'yellow';
+  font-weight: bold;
 }

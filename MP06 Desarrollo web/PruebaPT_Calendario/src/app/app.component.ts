@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 
-interface Dia {
-  name: string;
-}
 
 @Component({
   selector: 'app-root',
@@ -16,22 +13,5 @@ export class AppComponent {
   semana = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"];
   mes = ["Septiembre","Octubre"];
   tipo = ["Festivo Nacional","Festivo Regional","Festivo Local","Festivo Centro","Dia Laborable"];
-
-  // tipoDia: Dia[] = [];
-
-
-  // constructor() {
-  //   // Ejemplo de respuesta de un servidor en formato JSON
-  //   const serverJson = `[
-  //     {"name": "Festivo Nacional"},
-  //     {"name": "Festivo Regional"},
-  //     {"name": "Festivo Local"},
-  //     {"name": "Festivo Centro"},
-  //     {"name": "Dia Laborable"}
-  //   ]`;
-
-  //   // Parseamos la información y la convertimos directamente en un array de "Character"
-  //   this.tipoDia = JSON.parse(serverJson);
-  // }
 
 }
