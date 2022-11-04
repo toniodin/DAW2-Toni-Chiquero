@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::post('register', [UserController::class, 'register']);
 Route::post('login', [UserController::class, 'login']);
-Route::post('addProduct', [UserController::class, 'addProduct']);
+Route::post('insert-product', [ProductController::class, 'insert']);
 
 
 Route::group( ['middleware' => ["auth:sanctum"]], function(){
