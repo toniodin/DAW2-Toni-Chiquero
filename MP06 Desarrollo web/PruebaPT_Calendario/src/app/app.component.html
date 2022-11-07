@@ -8,41 +8,26 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <div [ngStyle]="{'text-align':'center'}">
-    <!-- <p [ngStyle]="{'color':'green'}">{{tipo[0]}}</p>
-    <p [ngStyle]="{'color':'#660066'}">{{tipo[1]}}</p>
-    <p [ngStyle]="{'color':'violet'}">{{tipo[2]}}</p>
-    <p [ngStyle]="{'color':'yellow'}">{{tipo[3]}}</p> -->
+    <p [ngStyle]="{'color':'green'}">{{festivos[0]}}</p>
+    <p [ngStyle]="{'color':'#660066'}">{{festivos[1]}}</p>
+    <p [ngStyle]="{'color':'violet'}">{{festivos[2]}}</p>
+    <p [ngStyle]="{'color':'yellow'}">{{festivos[3]}}</p>
 
-  <div class="container py-5" *ngFor="let Mes of meses.mes">
+  <div class="container py-5" *ngFor="let Mes of meses">
     <!-- Calendar -->
     <div class="calendar shadow bg-white p-5">
       <div class="d-flex align-items-center"><i class="fa fa-calendar fa-3x mr-3"></i>
-        <h2 class="month font-weight-bold mb-0 text-uppercase">{{Mes}}</h2>
+        <h2 class="month font-weight-bold mb-0 text-uppercase">{{Mes.mes}}</h2>
       </div>
       <br>
       <ol class="day-names list-unstyled">
         <li class="font-weight-bold text-uppercase" style="text-align:center;" *ngFor="let dia of semana">{{dia}}</li>
       </ol>
-      <!-- <ol class="days list-unstyled">
-        <div *ngIf="(Mes == 'Septiembre')">
-          <nav *ngFor="let dia of septiembre">
-            <li style="text-align:center;padding-top: 55px;" class="date" [ngClass]="{
-                                        'FestivoRegional': dia === 11,
-                                        'FestivoLocal': dia === 29
-                                      }">{{dia}}
-            </li>
-          </nav>
-        </div>
-        <div *ngIf="(Mes == 'Octubre')">
-          <nav *ngFor="let dia of octubre">
-            <li style="text-align:center;padding-top: 55px;" class="date" [ngClass]="{
-                                        'FestivoNacional': dia === 12,
-                                        'FestivoCentro': dia === 31
-                                      }">{{dia}}
-            </li>
-          </nav>
-        </div>
-      </ol> -->
+      <ol class="days list-unstyled">
+        <!-- <nav *ngFor="let Dia of Mes.diasMes">
+          <li style="text-align:center;padding-top: 55px;" class="date" [ngClass]="{}">{{Mes.dias}}</li>
+        </nav> -->
+      </ol>
     </div>
   </div>
 </div>
