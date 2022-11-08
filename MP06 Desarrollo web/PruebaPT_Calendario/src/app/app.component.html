@@ -24,9 +24,13 @@
         <li class="font-weight-bold text-uppercase" style="text-align:center;" *ngFor="let dia of semana">{{dia}}</li>
       </ol>
       <ol class="days list-unstyled">
-        <!-- <nav *ngFor="let Dia of Mes.diasMes">
-          <li style="text-align:center;padding-top: 55px;" class="date" [ngClass]="{}">{{Mes.dias}}</li>
-        </nav> -->
+        <nav *ngFor="let Dia of Mes.diasMes" >
+          <li style="text-align:center;padding-top: 55px;" class="date" [ngClass]="{
+
+                                                                                    'FestivoRegional': Dia === 11,
+                                                                                    'FestivoLocal': Dia === 29
+                                                                                    }">{{this.Dia}}</li>
+        </nav>
       </ol>
     </div>
   </div>
