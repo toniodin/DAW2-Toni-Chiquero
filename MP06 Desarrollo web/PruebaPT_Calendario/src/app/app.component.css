@@ -120,3 +120,7 @@ p{
   background-color: 'yellow';
   font-weight: bold;
 }
+
+.hidden{
+  display: none;
+}
