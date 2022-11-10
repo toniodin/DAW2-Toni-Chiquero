@@ -31,4 +31,22 @@ class ProductController extends Controller
 
     }
 
+    public function deleteProducto(Request $request) {
+
+        $request->validate([
+            'id' => 'required',
+        ]);
+        $product = new Product();
+        $product->id = $request->id;
+        // if(){
+
+        // }
+        
+        return response()->json([
+            "status" => 1,
+            "msg" => "¡Registro de producto exitoso!",
+        ]);
+
+    }
+
 }
