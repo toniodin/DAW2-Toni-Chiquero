@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string("name");
             $table->integer("price");
+            $table->integer("stock");
             $table->string("description");
-            $table->unsignedBigInteger("idCategoria");
+            $table->unsignedBigInteger("idCategory");
             $table->timestamps();
 
             $table->foreign('idCategoria')
