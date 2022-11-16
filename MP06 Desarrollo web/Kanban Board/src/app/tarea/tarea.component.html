@@ -1,7 +1,14 @@
-<div>
-    <p>{{tareas.lista}}</p>
+<div class="card">
+    <br>
     <img src="{{tareas.img}}" alt="">
     <p>{{tareas.titulo}}</p>
-    <p *ngFor="let usuario of usuarios">{{tareas.usuarios.usuario}}</p>
-    <p>{{tareas.fechaFin}}</p>
+    <div class="colocarUsuarioFecha">
+        <div *ngFor="let user of tareas.usuarios">
+            <img class="userImg" src="{{user.img}}" >
+            <p>{{user.alt}}</p>
+        </div>
+        <div>
+            <p >{{tareas.fechaFin}}</p>
+        </div>
+    </div>
 </div>

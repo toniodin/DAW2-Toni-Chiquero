@@ -1,0 +1,15 @@
+body{
+    background-color: rgb(230, 190, 141);
+}
+
+.cuerpo{
+    background-color: bisque;
+    text-align: center;
+    font-weight: bold;
+    display: table-cell;
+}
+
+.titulos{
+    display: inline-block;
+    text-align: center;
+}
