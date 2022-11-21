@@ -3,7 +3,7 @@ body{
 }
 
 .cuerpo{
-    background-color: bisque;
+    padding: 8rem;
     text-align: center;
     font-weight: bold;
     display: table-cell;

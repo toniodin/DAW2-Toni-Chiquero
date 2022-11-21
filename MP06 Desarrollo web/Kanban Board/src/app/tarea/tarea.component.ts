@@ -8,7 +8,7 @@ import { Tarea } from '../models/tarea-model';
 })
 export class TareaComponent implements OnInit {
 
-   @Input() tareas: Tarea;
+  @Input() tareas: Tarea;
 
   constructor() {
 

@@ -5,6 +5,7 @@
     border-radius: 10%;
     margin-left: 10px;
     margin-right: 10px;
+    background-color: bisque;
 }
   
   /* On mouse-over, add a deeper shadow */
@@ -20,4 +21,22 @@
 .colocarUsuarioFecha{
     display: flex;
     flex-direction: row-reverse;
+}
+
+.caducado{
+    border: red,solid,1px;
+    border-radius: 50%;
+}
+
+.finalizada{
+    border: green,solid,1px;
+    border-radius: 50%;
+}
+.porVencer{
+    border: orange,solid,1px;
+    border-radius: 50%;
+}
+.resto{
+    border: grey,solid,1px;
+    border-radius: 50%;
 }
