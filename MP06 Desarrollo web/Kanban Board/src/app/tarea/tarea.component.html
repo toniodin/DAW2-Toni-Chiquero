@@ -7,8 +7,6 @@
             <img class="userImg" src="{{user.img}}" >
             <p>{{user.alt}}</p>
         </div>
-        <div>
-            <p >{{tareas.fechaFin}}</p>
-        </div>
+        <!-- <p *ngIf="compararFechas(tareas.fechaFin) == 'rojo'" [ngClass]="{caducado: tareas.fechaFin}">{{tareas.fechaFin}}</p> -->
     </div>
 </div>
