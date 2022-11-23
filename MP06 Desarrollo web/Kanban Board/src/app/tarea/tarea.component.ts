@@ -25,12 +25,21 @@ export class TareaComponent implements OnInit {
   compararFechas(fechaComparar:Date){
 
   var fechaHoy = new Date();
-  // var fechaHoy = formatDate(new Date(), 'yyyy/MM/dd', 'en')
+  var fechaHoyFormated = formatDate(fechaHoy, 'yyyy/MM/dd', 'en');
+  var fechaHoyNumber = fechaHoy.getTime();
+  console.log(fechaHoyNumber);
+  var fechaCompararNumber = Number(fechaComparar);
+  var fechaCompararFormated = formatDate(fechaComparar, 'yyyy/MM/dd', 'en');
+  // var fechaHardcoded = "2022/11/10"
+  
 
-    console.log(fechaHoy);
-    if(fechaHoy.getDate() < fechaComparar.getDate() && this.tareas.lista != "Finalizadas"){
+    if(fechaHoyFormated > fechaCompararFormated && this.tareas.lista != "Finalizadas"){
+      // console.log("BBC");
       return "rojo";
-    }else if(fechaHoy.getDate() < fechaComparar.getDate() && this.tareas.lista == "Finalizadas"){
+    }else if(fechaCompararNumber == fechaHoyNumber+1 && this.tareas.lista != "Finalizadas"){
+      return "naranja";
+    }else if(fechaHoyFormated > fechaCompararFormated && this.tareas.lista == "Finalizadas"){
+      // console.log("BBD");
       return "verde";
     }else{
       return "gris";

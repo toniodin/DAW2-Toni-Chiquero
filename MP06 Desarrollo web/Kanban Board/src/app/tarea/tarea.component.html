@@ -5,8 +5,11 @@
     <div class="colocarUsuarioFecha">
         <div *ngFor="let user of tareas.usuarios">
             <img class="userImg" src="{{user.img}}" >
-            <p>{{user.alt}}</p>
         </div>
-        <!-- <p *ngIf="compararFechas(tareas.fechaFin) == 'rojo'" [ngClass]="{caducado: tareas.fechaFin}">{{tareas.fechaFin}}</p> -->
+        <div *ngIf="tareas.fechaFin != null">
+            <div [ngClass]="[compararFechas(tareas.fechaFin)]">
+                <p>{{tareas.fechaFin}}</p>
+            </div>
+        </div>
     </div>
 </div>

@@ -14,8 +14,9 @@
 }
 
 .userImg{
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
 }
 
 .colocarUsuarioFecha{
@@ -23,20 +24,17 @@
     flex-direction: row-reverse;
 }
 
-.caducado{
-    border: red,solid,1px;
-    border-radius: 50%;
+.rojo{
+    background-color: red;
 }
 
-.finalizada{
-    border: green,solid,1px;
-    border-radius: 50%;
+.verde{
+    background-color: green;
 }
 .porVencer{
     border: orange,solid,1px;
     border-radius: 50%;
 }
-.resto{
-    border: grey,solid,1px;
-    border-radius: 50%;
+.gris{
+    background-color: grey;
 }
