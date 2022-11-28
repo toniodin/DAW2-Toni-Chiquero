@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EventoComponent } from './evento/evento.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TareaComponent } from './tarea/tarea.component';
+import { TareaFormComponent } from './tarea-form/tarea-form.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    EventoComponent
+    TareaComponent,
+    TareaFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
