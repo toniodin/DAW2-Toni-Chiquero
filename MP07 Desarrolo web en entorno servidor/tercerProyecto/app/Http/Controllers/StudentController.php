@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Student;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -11,25 +12,23 @@ class StudentController extends Controller{
     
 
     public function insert(Request $request) {
-
         $request->validate([
             'Nombre' => 'required',
             'Apellidos' => 'required',
             'DNI' => 'required',
-            'Curso' => 'required',
+            'idCourse' => 'required',
         ]);
         $student = new student();
         $student->Nombre = $request->Nombre;
         $student->Apellidos = $request->Apellidos;
         $student->DNI = $request->DNI;
-        $student->Curso = $request->Curso;
+        $student->idCourse = $request->idCourse;
         $student->save();
         
         return response()->json([
             "status" => 1,
             "msg" => "¡Registro de estudiante exitoso!",
         ]);
-
     }
 
     public function delete(Request $request) {
@@ -56,14 +55,35 @@ class StudentController extends Controller{
             'Nombre' => '',
             'Apellidos' => '',
             'DNI' => '',
-            'Curso' => '',
+            'idCourse' => '',
         ]);
         $student = new student();
-        $student = DB::select('select * from students WHERE id = ? OR Nombre = ? OR Apellidos = ? OR DNI = ? OR Curso = ?',
-        [$request->id,$request->Nombre,$request->Apellidos,$request->DNI,$request->Curso]);
+        $student = DB::select('select * from students WHERE id = ? OR Nombre = ? OR Apellidos = ? OR DNI = ? OR idCourse = ?',
+        [$request->id,$request->Nombre,$request->Apellidos,$request->DNI,$request->idCourse]);
         
 
         return $student;
+
+        return response()->json([
+            "status" => 1,
+            "msg" => "¡Un registro ha sido actualizado!",
+        ]);
+
+    }
+
+    public function update(Request $request) {
+
+        $request->validate([
+            'id' => '',
+            'Nombre' => '',
+            'Apellidos' => '',
+            'DNI' => '',
+            'idCourse' => '',
+        ]);
+       
+        DB::update('update students set Nombre = ?,Apellidos = ?,DNI = ?,idCourse = ? WHERE id = ?',
+        [$request->Nombre,$request->Apellidos,$request->DNI,$request->idCourse,$request->id]);
+        
 
         return response()->json([
             "status" => 1,
