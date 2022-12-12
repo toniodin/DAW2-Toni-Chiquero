@@ -14,6 +14,7 @@ export class AppComponent {
 
   listas: string[] = [];
   tareas: Tarea[];
+  forms: boolean = false;
 
   constructor() {
     const tareasJSON: string = `{
@@ -36,9 +37,14 @@ export class AppComponent {
     this.listas.push(k_PENDIENTES_LISTA);
     this.listas.push(k_PROGRESO_LISTA);
     this.listas.push(k_FINALIZADAS_LISTA);
+  }
 
-    // leerFormulario(json: string) {
-    //   console.log(JSON.stringify(json));
-    // }
+  leerFormulario(json: string) {
+    console.log(JSON.stringify(json));
+  }
+
+  mostrarForm(obj:any){
+
+    obj.css("display: none");
   }
 }

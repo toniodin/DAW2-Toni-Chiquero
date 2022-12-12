@@ -6,7 +6,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.css']
 })
-export class TareaFormComponent {
+export class FormularioComponent {
 
   @Output() guardarForm: EventEmitter<string> = new EventEmitter<string>();
 

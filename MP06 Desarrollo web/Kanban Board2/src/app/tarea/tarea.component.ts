@@ -36,4 +36,5 @@ export class TareaComponent implements OnInit {
       return "gris";
     }
   }
+
 }

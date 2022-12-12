@@ -5,10 +5,10 @@
             <div *ngFor="let tarea of tareas; index as i">
                 <app-tarea *ngIf="tarea.lista == lista" [tareas] = "tareas[i]"></app-tarea>
             </div>
-            <button type="submit">+ Añadir Tarea Nueva</button>
+            <button type="submit" (click)="mostrarForm(this)">+ Añadir Tarea Nueva</button>
         </div>
     </div>
-    <!-- <app-formulario (guardarForm)="leerFormulario($event)"></app-formulario> -->
+    <app-formulario (guardarForm)="leerFormulario($event)" style="display:none;"></app-formulario>
 </body>
 
 
