@@ -36,5 +36,9 @@ export class AppComponent {
     this.listas.push(k_PENDIENTES_LISTA);
     this.listas.push(k_PROGRESO_LISTA);
     this.listas.push(k_FINALIZADAS_LISTA);
+
+    // leerFormulario(json: string) {
+    //   console.log(JSON.stringify(json));
+    // }
   }
 }

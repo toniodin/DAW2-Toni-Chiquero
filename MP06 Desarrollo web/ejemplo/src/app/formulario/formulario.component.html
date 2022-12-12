@@ -1,0 +1,18 @@
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+
+    <label for="first-name">First Name: </label>
+    <input id="first-name" type="text" formControlName="taskName">
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Date</mat-label>
+      <input id="date" matInput [matDatepicker]="picker" formControlName="date">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  
+    <button type="submit" [disabled]="!taskForm.valid">Submit</button>
+  </form>
+  
+  <p>Complete the form to enable button.</p>
+  
