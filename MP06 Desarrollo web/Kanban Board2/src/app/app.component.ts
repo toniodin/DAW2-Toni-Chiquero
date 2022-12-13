@@ -14,7 +14,7 @@ export class AppComponent {
 
   listas: string[] = [];
   tareas: Tarea[];
-  forms: boolean = true;
+  forms = true;
 
   constructor() {
     const tareasJSON: string = `{
@@ -43,7 +43,11 @@ export class AppComponent {
     console.log(JSON.stringify(json));
   }
 
-  mostrarForm(){
-    this.forms = false;
+  addUsuario(json: string) {
+    console.log(JSON.stringify(json));
+  }
+
+  mostrarForm():boolean{
+    return false;
   }
 }

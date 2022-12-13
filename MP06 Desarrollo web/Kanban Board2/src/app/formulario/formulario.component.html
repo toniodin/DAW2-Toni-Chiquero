@@ -1,3 +1,5 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <body>
   <div class="login-root">
     <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
@@ -37,25 +39,73 @@
         <div class="formbg-outer">
           <div class="formbg">
             <div class="formbg-inner padding-horizontal--48">
-              <span class="padding-bottom--15">Sign in to your account</span>
+              <span class="padding-bottom--15">Añadir tarea</span>
               <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" id="stripe-login">
-                <label for="first-name">First Name: </label>
-                <input id="first-name" type="text" formControlName="taskName">
-              
-                <mat-form-field appearance="fill" class="field padding-bottom--24">
-                  <mat-label>Date</mat-label>
-                  <input id="date" matInput [matDatepicker]="picker" formControlName="date">
-                  <mat-hint>MM/DD/YYYY</mat-hint>
-                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                  <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
                 
-                <button type="submit" [disabled]="!taskForm.valid">Submit</button>
+                <mat-card class="card">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Titulo</mat-label>
+                    <input matInput formControlName="titulo" required/> </mat-form-field>
+                    <br/>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Estado</mat-label>
+                    <mat-select formControlName="estado" aria-required="true">
+                      <mat-option value="1">Pendiente</mat-option>
+                      <mat-option value="2">En Progreso</mat-option>
+                      <mat-option value="3">Finalizada</mat-option>
+                    </mat-select> 
+                  </mat-form-field><br />
+                  <mat-form-field appearance="fill">
+                    <input matInput [matDatepicker]="picker" formControlName="date"/>
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker> 
+                  </mat-form-field>
+                  <br/>
+                  <mat-form-field appearance="fill">
+                    <mat-label>URL</mat-label>
+                    <input matInput  formControlName="url"/> 
+                  </mat-form-field>
+                  <br/>
+                  <button mat-fab (click)="addUsuario()">+</button>
+                  <!-- <div class="usuario">
+                    <br />
+                    <img
+                      
+                      matTooltip="{{ nick.alt }}"
+                      class="imagen-user"
+                      src="{{ nick.alt }}"
+                    />
+                  </div> -->
+                  <!-- <div class="usuario" *ngFor="let usuario of arrayUsuarios; index as i">
+                    <br />
+                    <img
+                      *ngIf="arrayVisibilidad[i] == true"
+                      matTooltip="{{ usuario.alt }}"
+                      class="imagen-user"
+                      src="{{ usuario.alt }}"
+                    />
+                  </div> -->
+                  <br />
+                  <button type = "submit" mat-raised-button color="primary">Guardar</button><br />
+                  <!-- <button (click)="cancelarTareaEstado()" mat-raised-button color="warn">
+                    Eliminar
+                  </button> -->
+                </mat-card>
+
+                <!-- <br><br>
+                <button type="submit" [disabled]="!taskForm.valid" class="btn btn-primary" style="width: 100%;">Guardar</button>
+                <br><br>
+                <button type="submit" class="btn btn-danger" style="width:100%">Cancelar</button>
+                <button style="border: none;background-color: white;">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Plus_symbol.svg/1200px-Plus_symbol.svg.png" alt="" style="height: 50px;width: 50px; font-weight: bold; position: absolute; top: 500px;">
+                </button> -->
+                
               </form>
-            </div>
+            <!-- </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</body>
+</body> -->

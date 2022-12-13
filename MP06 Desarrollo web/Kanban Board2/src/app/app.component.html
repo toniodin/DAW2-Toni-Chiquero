@@ -1,15 +1,17 @@
-<body>
+<body *ngIf="forms == true">
     <div class="titulos" *ngFor="let lista of listas">
         <h1>{{lista}}</h1>
         <div class="cuerpo">
             <div *ngFor="let tarea of tareas; index as i">
                 <app-tarea *ngIf="tarea.lista == lista" [tareas] = "tareas[i]"></app-tarea>
             </div>
-            <button type="submit" (click)="mostrarForm()">+ Añadir Tarea Nueva</button>
+            <button type="submit" (click)="forms = mostrarForm()">+ Añadir Tarea Nueva</button>
         </div>
     </div>
-    <app-formulario *ngIf="forms" (guardarForm)="leerFormulario($event)" style="display:none;"></app-formulario>
 </body>
+<div *ngIf="forms != true" >
+    <app-formulario (guardarForm)="leerFormulario($event)"></app-formulario>
+</div>
 
 
     

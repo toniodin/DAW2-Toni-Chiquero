@@ -3,7 +3,7 @@
     <p>{{tareas.titulo}}</p>
     <div class="colocarUsuarioFecha">
         <div *ngFor="let user of tareas.usuarios">
-            <img class="userImg" src="{{user.img}}" >
+            <img matTooltip = "{{user.nick}}" class="userImg" src="{{user.img}}" >
         </div>
     </div>
     <div *ngIf="tareas.fechaFin != null">
