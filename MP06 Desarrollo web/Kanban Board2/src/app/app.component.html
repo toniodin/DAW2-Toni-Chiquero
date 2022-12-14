@@ -3,14 +3,14 @@
         <h1>{{lista}}</h1>
         <div class="cuerpo">
             <div *ngFor="let tarea of tareas; index as i">
-                <app-tarea *ngIf="tarea.lista == lista" [tareas] = "tareas[i]"></app-tarea>
+                <app-tarea *ngIf="tarea.lista == lista" [tareas] = "tareas[i]" (click)="mostrarForm(tarea)"></app-tarea>
             </div>
-            <button type="submit" (click)="forms = mostrarForm()">+ Añadir Tarea Nueva</button>
+            <button type="submit" (click)="mostrarForm()">+ Añadir Tarea Nueva</button>
         </div>
     </div>
 </body>
 <div *ngIf="forms != true" >
-    <app-formulario (guardarForm)="leerFormulario($event)"></app-formulario>
+    <app-formulario [forms]="this.forms" [tareaSeleccionada]="this.tareaSeleccionada" (guardarForm)="leerFormulario($event)" (cerrarForm)="esconderForm($event)"></app-formulario>
 </div>
 
 

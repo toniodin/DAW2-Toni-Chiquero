@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Tarea } from './models/tarea-model';
 
 const k_PENDIENTES_LISTA: string = "Pendientes";
@@ -14,7 +14,9 @@ export class AppComponent {
 
   listas: string[] = [];
   tareas: Tarea[];
-  forms = true;
+  @Input() forms = true;
+  @Input() tareaSeleccionada:any;
+  
 
   constructor() {
     const tareasJSON: string = `{
@@ -43,11 +45,14 @@ export class AppComponent {
     console.log(JSON.stringify(json));
   }
 
-  addUsuario(json: string) {
-    console.log(JSON.stringify(json));
+  esconderForm(event:boolean) {
+    this.forms = event;
   }
 
-  mostrarForm():boolean{
-    return false;
+  mostrarForm(event?:Tarea){
+    this.tareaSeleccionada = event;
+    this.forms = false;
+    console.log(this.tareaSeleccionada);
   }
+
 }
