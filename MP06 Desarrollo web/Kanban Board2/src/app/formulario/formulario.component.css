@@ -181,4 +181,8 @@
       font-weight: 600;
       margin: 0 10px;
   }
+
+  mat-error{
+    color: red;
+  }
   

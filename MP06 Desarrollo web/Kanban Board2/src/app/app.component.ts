@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Tarea } from './models/tarea-model';
 
 const k_PENDIENTES_LISTA: string = "Pendientes";
@@ -12,9 +12,11 @@ const k_FINALIZADAS_LISTA: string = "Finalizadas";
 })
 export class AppComponent {
 
-  listas: string[] = [];
+  @Input() listas: string[] = [];
   tareas: Tarea[];
-  forms = true;
+  @Input() forms = true;
+  @Input() tareaSeleccionada:any;
+  
 
   constructor() {
     const tareasJSON: string = `{
@@ -39,15 +41,25 @@ export class AppComponent {
     this.listas.push(k_FINALIZADAS_LISTA);
   }
 
-  leerFormulario(json: string) {
-    console.log(JSON.stringify(json));
+  leerFormulario(tareaEditar: Tarea) {
+    for(var i = 0; i < this.tareas.length; i++){
+
+      if(tareaEditar.id == this.tareas[i].id){
+        this.tareas[i] = tareaEditar;
+      }
+      
+    }
   }
 
-  addUsuario(json: string) {
-    console.log(JSON.stringify(json));
+  esconderForm(event:boolean) {
+    this.forms = event;
+    console.log(event);
   }
 
-  mostrarForm():boolean{
-    return false;
+  mostrarForm(event?:Tarea){
+    this.tareaSeleccionada = event;
+    this.forms = false;
+    console.log(this.tareaSeleccionada);
   }
+
 }
