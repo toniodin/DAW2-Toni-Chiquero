@@ -13,7 +13,7 @@ const k_FINALIZADAS_LISTA: string = "Finalizadas";
 export class AppComponent {
 
   @Input() listas: string[] = [];
-  tareas: Tarea[];
+  @Input() tareas: Tarea[];
   @Input() forms = true;
   @Input() tareaSeleccionada:any;
   
@@ -41,14 +41,9 @@ export class AppComponent {
     this.listas.push(k_FINALIZADAS_LISTA);
   }
 
-  leerFormulario(tareaEditar: Tarea) {
-    for(var i = 0; i < this.tareas.length; i++){
-
-      if(tareaEditar.id == this.tareas[i].id){
-        this.tareas[i] = tareaEditar;
-      }
-      
-    }
+  leerFormulario(json: string) {
+    
+    console.log(json)
   }
 
   esconderForm(event:boolean) {

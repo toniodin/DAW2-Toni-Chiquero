@@ -10,7 +10,7 @@
     </div>
 </body>
 <div *ngIf="forms != true" >
-    <app-formulario [forms]="this.forms" [tareaSeleccionada]="this.tareaSeleccionada" [listas]="this.listas" (guardarForm)="leerFormulario($event)" (cerrarForm)="esconderForm($event)"></app-formulario>
+    <app-formulario [forms]="this.forms" [tareaSeleccionada]="this.tareaSeleccionada" [listas]="this.listas" [tareas]="this.tareas" (guardarForm)="leerFormulario($event)" (cerrarForm)="esconderForm($event)"></app-formulario>
 </div>
 
 

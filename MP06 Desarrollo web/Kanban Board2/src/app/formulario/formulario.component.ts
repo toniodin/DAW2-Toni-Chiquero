@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AppComponent } from '../app.component';
-import { Tarea } from '../models/tarea-model';
 import { Usuario } from '../models/usuario-model';
 
 @Component({
@@ -11,18 +10,11 @@ import { Usuario } from '../models/usuario-model';
 })
 export class FormularioComponent extends AppComponent{
 
-  @Output() guardarForm: EventEmitter<Tarea> = new EventEmitter<Tarea>();
+  @Output() guardarForm: EventEmitter<string> = new EventEmitter<string>();
   @Output() cerrarForm: EventEmitter<boolean> = new EventEmitter<boolean>();
  
-  tarea:Tarea = {
-    id: 0,
-    lista: '',
-    img: null,
-    titulo: '',
-    usuarios: [],
-    fechaFin: null
-  }
 
+  //Valores que tendrá el formulario
   taskForm = new FormGroup({
     id: new FormControl(),
     titulo: new FormControl('', [Validators.required]),
@@ -32,38 +24,56 @@ export class FormularioComponent extends AppComponent{
     usuarios: new FormControl(),
   });
 
+
+  emptyUser:Usuario[] = [];
+
   arrUser:Usuario[] = [
 
     {email: "lponts@ilerna.com", img:"https://picsum.photos/100/100", nick: "Laura", alt:"Usuario"},
-    {email: "lponts@ilerna.com", img:"https://picsum.photos/100/100", nick: "Laura", alt:"Usuario"}
-  ]
+    {email: "lponts@ilerna.com", img:"https://picsum.photos/100/100", nick: "Erpepe", alt:"Usuario"},
+    {email: "lponts@ilerna.com", img:"https://picsum.photos/100/100", nick: "Manolo", alt:"Usuario"},
+    {email: "lponts@ilerna.com", img:"https://picsum.photos/100/100", nick: "Hihi", alt:"Usuario"},
+  ];
+
+  //Al abrirse el formulario seteamos los valores de este
   ngOnInit(): void{
 
     if(this.tareaSeleccionada != undefined){
+      //Si la tarea la estamos editando la devolveremos con estos valores
       this.taskForm.setValue({
+
         id:this.tareaSeleccionada.id,
         titulo:this.tareaSeleccionada.titulo,
         estado:this.tareaSeleccionada.lista,
         fechaFin:this.tareaSeleccionada.fechaFin,
         img:this.tareaSeleccionada.img,
         usuarios:this.arrUser
+
       });
+
+    }else{
+
+      this.taskForm.setValue({
+
+        id:'',
+        titulo:'',
+        estado:'',
+        fechaFin:'',
+        img:'',
+        usuarios:this.emptyUser,
+
+      });
+
     }
   }
-
+  
+  //al submitear el formulario le mandamos los valores del formulario a través de tarea
   onSubmit() {
     if (!this.taskForm.valid) {
 
     }else {     
-      this.tarea = {
-        id:        Number(this.taskForm.value.id),
-        titulo:    String(this.taskForm.value.titulo),
-        lista:     String(this.taskForm.value.estado),
-        fechaFin:  this.taskForm.value.fechaFin,
-        img:       this.taskForm.value.img,
-        usuarios:   this.arrUser,
-      }
-      this.guardarForm.emit(this.tarea);
+      //Enviamos y cerramos el form simultaneamente
+      this.guardarForm.emit(JSON.stringify(this.taskForm.value));
       this.cerrarForm.emit(true);
     }
 
