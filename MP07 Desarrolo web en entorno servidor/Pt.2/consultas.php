@@ -38,6 +38,10 @@
           }
       });
      }
+
+     function redirigirMain(){
+          window.location.href = "https://tonichiquerocrud.000webhostapp.com/main.php";
+     }
 </script>
 </body>
 </html>
@@ -76,7 +80,7 @@ if(!$con){
         $sql="UPDATE `productos` SET `nombre`='$nombre', `precio` = '$precio', `cantidad` = '$cantidad', `descripcion` = '$descripcion' WHERE `id` = '$id'";
         $consulta=mysqli_query($con,$sql);
         sleep(2);
-        header('Location: main.php');
+        redirigirMain();
         exit();
        
    }elseif(isset($_GET['insertBtn'])){
@@ -86,8 +90,9 @@ if(!$con){
                 VALUES (NULL,'$nombre',$precio,$cantidad,'$descripcion')";
         $consulta=mysqli_query($con,$sql);
         sleep(2);
-        header('Location: main.php');
-        exit();
+          echo "<script>";
+          echo "redirigirMain();";
+          echo "</script>";
 
    }elseif(isset($_GET['deleteBtn'])){
 
@@ -95,8 +100,7 @@ if(!$con){
     $sql="DELETE FROM `productos` WHERE `id` = '$id'";
     $consulta=mysqli_query($con,$sql);
     sleep(2);
-    header('Location: main.php');
-    exit();
+    redirigirMain();
 
    }elseif(isset($_GET['loginBtn'])){
 
@@ -110,8 +114,9 @@ if(!$con){
                $_SESSION["admin"] = $fila['admin'];
                if($_SESSION["admin"] == 1){
                     sleep(2);
-                    header('Location: main.php');
-                    exit();
+                    echo "<script>";
+                    echo "redirigirMain();";
+                    echo "</script>";
                }else{
                     sleep(2);
                     header('Location: leerProductos.php');
@@ -132,7 +137,7 @@ if(!$con){
                 VALUES (NULL,'$n_usuario','$contraseñaEncriptada',0,'$nombre','$apellidos','$email')";
      $consulta=mysqli_query($con,$sql);
      sleep(2);
-     header('Location: login.php');
+     header('Location: https://tonichiquerocrud.000webhostapp.com/Login.php');
      exit();
    }elseif(isset($_GET['btnCarro'])){
      

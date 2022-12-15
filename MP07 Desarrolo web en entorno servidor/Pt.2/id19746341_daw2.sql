@@ -19,8 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `daw2`
 --
-CREATE DATABASE IF NOT EXISTS `daw2` DEFAULT CHARACTER SET utf32 COLLATE utf32_spanish2_ci;
-USE `daw2`;
+CREATE DATABASE IF NOT EXISTS `id19746341_daw2` DEFAULT CHARACTER SET utf32 COLLATE utf32_spanish2_ci;
+USE `id19746341_daw2`;
 
 -- --------------------------------------------------------
 
