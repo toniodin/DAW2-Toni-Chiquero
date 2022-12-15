@@ -12,7 +12,7 @@ const k_FINALIZADAS_LISTA: string = "Finalizadas";
 })
 export class AppComponent {
 
-  listas: string[] = [];
+  @Input() listas: string[] = [];
   tareas: Tarea[];
   @Input() forms = true;
   @Input() tareaSeleccionada:any;
@@ -41,12 +41,19 @@ export class AppComponent {
     this.listas.push(k_FINALIZADAS_LISTA);
   }
 
-  leerFormulario(json: string) {
-    console.log(JSON.stringify(json));
+  leerFormulario(tareaEditar: Tarea) {
+    for(var i = 0; i < this.tareas.length; i++){
+
+      if(tareaEditar.id == this.tareas[i].id){
+        this.tareas[i] = tareaEditar;
+      }
+      
+    }
   }
 
   esconderForm(event:boolean) {
     this.forms = event;
+    console.log(event);
   }
 
   mostrarForm(event?:Tarea){

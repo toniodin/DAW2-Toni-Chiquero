@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AppComponent } from '../app.component';
+import { Tarea } from '../models/tarea-model';
+import { Usuario } from '../models/usuario-model';
 
 @Component({
   selector: 'app-formulario',
@@ -9,29 +11,66 @@ import { AppComponent } from '../app.component';
 })
 export class FormularioComponent extends AppComponent{
 
-  @Output() guardarForm: EventEmitter<string> = new EventEmitter<string>();
-  @Output() user: EventEmitter<string> = new EventEmitter<string>();
+  @Output() guardarForm: EventEmitter<Tarea> = new EventEmitter<Tarea>();
   @Output() cerrarForm: EventEmitter<boolean> = new EventEmitter<boolean>();
  
-  
+  tarea:Tarea = {
+    id: 0,
+    lista: '',
+    img: null,
+    titulo: '',
+    usuarios: [],
+    fechaFin: null
+  }
 
   taskForm = new FormGroup({
+    id: new FormControl(),
     titulo: new FormControl('', [Validators.required]),
     estado: new FormControl('', [Validators.required]),
-    date: new FormControl(),
-    url: new FormControl(),
+    fechaFin: new FormControl(),
+    img: new FormControl(),
+    usuarios: new FormControl(),
   });
 
-  arrUser = [];
+  arrUser:Usuario[] = [
+
+    {email: "lponts@ilerna.com", img:"https://picsum.photos/100/100", nick: "Laura", alt:"Usuario"},
+    {email: "lponts@ilerna.com", img:"https://picsum.photos/100/100", nick: "Laura", alt:"Usuario"}
+  ]
+  ngOnInit(): void{
+
+    if(this.tareaSeleccionada != undefined){
+      this.taskForm.setValue({
+        id:this.tareaSeleccionada.id,
+        titulo:this.tareaSeleccionada.titulo,
+        estado:this.tareaSeleccionada.lista,
+        fechaFin:this.tareaSeleccionada.fechaFin,
+        img:this.tareaSeleccionada.img,
+        usuarios:this.arrUser
+      });
+    }
+  }
 
   onSubmit() {
     if (!this.taskForm.valid) {
 
     }else {     
-      this.guardarForm.emit(JSON.stringify(this.taskForm.value));
+      this.tarea = {
+        id:        Number(this.taskForm.value.id),
+        titulo:    String(this.taskForm.value.titulo),
+        lista:     String(this.taskForm.value.estado),
+        fechaFin:  this.taskForm.value.fechaFin,
+        img:       this.taskForm.value.img,
+        usuarios:   this.arrUser,
+      }
+      this.guardarForm.emit(this.tarea);
       this.cerrarForm.emit(true);
     }
 
+  }
+
+  cancelarTareaEstado(event:boolean){
+    this.cerrarForm.emit(event);
   }
 
   getErrorTitulo(){
@@ -47,11 +86,8 @@ export class FormularioComponent extends AppComponent{
     return "";
   }
 
-  addUsuario() {
-    this.user.emit(JSON.stringify(this.arrUser));
-  }
+  // addUsuario() {
+  //   this.user.emit(JSON.stringify(this.arrUser));
+  // }
 
-  cancelarTareaEstado(event:boolean){
-    this.cerrarForm.emit(event);
-  }
 }
