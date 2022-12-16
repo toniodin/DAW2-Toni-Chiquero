@@ -50,7 +50,7 @@
                   </mat-form-field>
                   <mat-form-field appearance="fill">
                     <mat-label>Estado</mat-label>
-                    <mat-select formControlName="estado">
+                    <mat-select formControlName="lista">
                       <mat-option *ngFor="let estado of this.listas" value = {{estado}}>{{estado}}</mat-option>
                     </mat-select> 
                   </mat-form-field><br />
@@ -67,19 +67,12 @@
                     <input matInput  formControlName="img"/> 
                   </mat-form-field>
                   <br/>
-                  <!-- <button mat-fab (click)="addUsuario()">+</button> -->
-                  <!-- <div class="usuario">
-                    <img matTooltip="{{ nick }}" class="" src="{{ nick }}"/>
-                  </div> -->
-                  <!-- <div class="usuario" *ngFor="let usuario of arrayUsuarios; index as i">
-                    <br />
-                    <img
-                      *ngIf="arrayVisibilidad[i] == true"
-                      matTooltip="{{ usuario.alt }}"
-                      class="imagen-user"
-                      src="{{ usuario.alt }}"
-                    />
-                  </div> -->
+                  <img 
+                  src="https://cdn.pixabay.com/photo/2017/07/11/13/56/user-2493635_1280.png" 
+                  alt="" style="width:50px; height: 50px ;" (click) = "addUsuario()">
+                  <div *ngIf="this.boolUsuario == false">
+                    <img *ngFor="let user of this.usuVacio" src="{{this.user.img}}" matTooltip = "{{user.nick}}">
+                  </div>
                   <br />
                   <button type="submit" [disabled]="!taskForm.valid" class="btn btn-primary" style="width: 100%;">Guardar</button>
                   <br>

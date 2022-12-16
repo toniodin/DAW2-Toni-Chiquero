@@ -13,7 +13,7 @@ const k_FINALIZADAS_LISTA: string = "Finalizadas";
 export class AppComponent {
 
   @Input() listas: string[] = [];
-  tareas: Tarea[];
+  @Input() tareas: Tarea[];
   @Input() forms = true;
   @Input() tareaSeleccionada:any;
   
@@ -41,13 +41,26 @@ export class AppComponent {
     this.listas.push(k_FINALIZADAS_LISTA);
   }
 
-  leerFormulario(tareaEditar: Tarea) {
+  leerFormulario(tareaEditar: string) {
+    
+    let parseJSON = JSON.parse(tareaEditar);
+    parseJSON.fechaFin = new Date(parseJSON.fechaFin);
+
     for(var i = 0; i < this.tareas.length; i++){
 
-      if(tareaEditar.id == this.tareas[i].id){
-        this.tareas[i] = tareaEditar;
+      if(parseJSON.id == this.tareas[i].id){
+        parseJSON.fechaFin = `${parseJSON.fechaFin.getFullYear()}-${parseJSON.fechaFin.getMonth()+1}-${parseJSON.fechaFin.getDate()}`;
+        this.tareas[i] = parseJSON;
+        console.log(this.tareas[i]);
       }
       
+    }
+
+    if(parseJSON.id == this.tareas.length){
+      parseJSON.fechaFin = `${parseJSON.fechaFin.getFullYear()}-${parseJSON.fechaFin.getMonth()+1}-${parseJSON.fechaFin.getDate()}`;
+      this.tareas.push(parseJSON);
+      console.log(this.tareas);
+
     }
   }
 
